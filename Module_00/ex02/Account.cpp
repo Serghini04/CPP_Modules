@@ -1,21 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ex01.hpp                                           :+:      :+:    :+:   */
+/*   Account.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: meserghi <meserghi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/26 21:09:21 by meserghi          #+#    #+#             */
-/*   Updated: 2024/05/04 15:06:57 by meserghi         ###   ########.fr       */
+/*   Created: 2024/05/04 15:05:16 by meserghi          #+#    #+#             */
+/*   Updated: 2024/05/04 15:08:29 by meserghi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef EX01_HPP
-# define EX01_HPP
+#include "Accout.hpp"
 
-#include <iostream>
-#include <iomanip>
-#include "Contact.hpp"
-#include "PhoneBook.hpp"
-
-#endif
+int main()
+{
+	
+	return (0);
+}

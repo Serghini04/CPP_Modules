@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ex01.hpp                                           :+:      :+:    :+:   */
+/*   Account.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: meserghi <meserghi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/26 21:09:21 by meserghi          #+#    #+#             */
-/*   Updated: 2024/05/04 15:06:57 by meserghi         ###   ########.fr       */
+/*   Created: 2024/05/04 15:05:37 by meserghi          #+#    #+#             */
+/*   Updated: 2024/05/04 15:07:36 by meserghi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef EX01_HPP
-# define EX01_HPP
+#ifndef EX02_HPP
+#define EX02_HPP
 
 #include <iostream>
 #include <iomanip>

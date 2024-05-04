@@ -6,12 +6,12 @@
 /*   By: meserghi <meserghi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 19:16:51 by meserghi          #+#    #+#             */
-/*   Updated: 2024/04/26 20:46:30 by meserghi         ###   ########.fr       */
+/*   Updated: 2024/05/04 15:07:03 by meserghi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef EX00_H
-# define EX00_H
+#ifndef EX00_HPP
+# define EX00_HPP
 
 #include <iostream>
 
