@@ -6,11 +6,11 @@
 #    By: meserghi <meserghi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/04 15:04:29 by meserghi          #+#    #+#              #
-#    Updated: 2024/05/04 15:04:50 by meserghi         ###   ########.fr        #
+#    Updated: 2024/05/05 14:53:23 by meserghi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-FILE = ex01.cpp PhoneBook.cpp Contact.cpp
+FILE = Account.cpp tests.cpp
 
 OBJ = ${FILE:.cpp=.o}
 
@@ -23,7 +23,7 @@ all : ${NAME}
 ${NAME} : ${OBJ}
 	c++ ${FLAGS} ${OBJ} -o ${NAME}
 
-%.o : %.cpp ex01.hpp
+%.o : %.cpp Account.hpp
 	c++ ${FLAGS} -c $<
 
 clean :
