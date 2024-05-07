@@ -6,7 +6,7 @@
 #    By: meserghi <meserghi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/04 15:04:29 by meserghi          #+#    #+#              #
-#    Updated: 2024/05/05 14:53:23 by meserghi         ###   ########.fr        #
+#    Updated: 2024/05/06 18:45:43 by meserghi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,9 +14,9 @@ FILE = Account.cpp tests.cpp
 
 OBJ = ${FILE:.cpp=.o}
 
-FLAGS = -Wall -Wextra -Werror -std=c++98
+FLAGS = -std=c++98
 
-NAME = PhoneBook
+NAME = Account
 
 all : ${NAME}
 
