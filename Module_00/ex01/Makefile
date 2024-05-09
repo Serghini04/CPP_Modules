@@ -6,9 +6,18 @@
 #    By: meserghi <meserghi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/26 21:09:07 by meserghi          #+#    #+#              #
-#    Updated: 2024/05/03 18:13:53 by meserghi         ###   ########.fr        #
+#    Updated: 2024/05/08 11:27:33 by meserghi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
+
+
+# you need to add this if cin failing :
+#		short Number;
+#		while (!(cin >> Number)) {
+#			cin.clear();
+#			cin.ignore(numeric_limits<streamsize>::max(), '\n');
+#			cout << ErrorMessage;
+#		}
 
 FILE = ex01.cpp PhoneBook.cpp Contact.cpp
 

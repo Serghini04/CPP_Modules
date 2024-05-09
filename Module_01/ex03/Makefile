@@ -5,25 +5,25 @@
 #                                                     +:+ +:+         +:+      #
 #    By: meserghi <meserghi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/05/04 15:04:29 by meserghi          #+#    #+#              #
-#    Updated: 2024/05/08 11:24:23 by meserghi         ###   ########.fr        #
+#    Created: 2024/05/09 11:20:08 by meserghi          #+#    #+#              #
+#    Updated: 2024/05/09 14:35:04 by meserghi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-FILE = Account.cpp tests.cpp
+FILE = main.cpp HumanA.cpp Weapon.cpp HumanB.cpp
 
 OBJ = ${FILE:.cpp=.o}
 
 FLAGS = -std=c++98 -Wall -Wextra -Werror
 
-NAME = Account
+NAME = ref
 
 all : ${NAME}
 
 ${NAME} : ${OBJ}
 	c++ ${FLAGS} ${OBJ} -o ${NAME}
 
-%.o : %.cpp Account.hpp
+%.o : %.cpp
 	c++ ${FLAGS} -c $<
 
 clean :

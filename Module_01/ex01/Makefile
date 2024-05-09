@@ -5,25 +5,25 @@
 #                                                     +:+ +:+         +:+      #
 #    By: meserghi <meserghi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/05/04 15:04:29 by meserghi          #+#    #+#              #
-#    Updated: 2024/05/08 11:24:23 by meserghi         ###   ########.fr        #
+#    Created: 2024/05/08 13:31:45 by meserghi          #+#    #+#              #
+#    Updated: 2024/05/08 13:49:14 by meserghi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-FILE = Account.cpp tests.cpp
+FILE = main.cpp Zombie.cpp zombiehord.cpp
 
 OBJ = ${FILE:.cpp=.o}
 
 FLAGS = -std=c++98 -Wall -Wextra -Werror
 
-NAME = Account
+NAME = Zombie
 
 all : ${NAME}
 
 ${NAME} : ${OBJ}
 	c++ ${FLAGS} ${OBJ} -o ${NAME}
 
-%.o : %.cpp Account.hpp
+%.o : %.cpp Zombie.hpp
 	c++ ${FLAGS} -c $<
 
 clean :
