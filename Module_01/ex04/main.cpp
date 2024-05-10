@@ -5,33 +5,19 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: meserghi <meserghi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/09 12:28:28 by meserghi          #+#    #+#             */
-/*   Updated: 2024/05/10 10:06:40 by meserghi         ###   ########.fr       */
+/*   Created: 2024/05/09 16:39:29 by meserghi          #+#    #+#             */
+/*   Updated: 2024/05/10 11:19:24 by meserghi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "HumanA.hpp"
-#include "HumanB.hpp"
+#include "Replace.hpp"
 
 int main()
 {
-	{
-		Weapon	club = Weapon("crude spiked club");
+	Replace	clsReplace;
 
-		HumanA	bob("Bob", club);
-		bob.attack();
-		club.setType("some other type of club");
-		bob.attack();
-	}
-	{
-		Weapon	club = Weapon("crude spiked club");
-
-		HumanB jim("Jim");
-		jim.setWeapon(club);
-		jim.attack();
-		club.setType("some other type of club");
-		jim.attack();
-	}
-
+	if (!clsReplace.ReadInput())
+		return (-1);
+	clsReplace.ReplaceFromFileToFile();
 	return (0);
 }

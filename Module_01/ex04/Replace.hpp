@@ -1,37 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Replace.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: meserghi <meserghi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/09 12:28:28 by meserghi          #+#    #+#             */
-/*   Updated: 2024/05/10 10:06:40 by meserghi         ###   ########.fr       */
+/*   Created: 2024/05/09 17:04:13 by meserghi          #+#    #+#             */
+/*   Updated: 2024/05/10 12:09:38 by meserghi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "HumanA.hpp"
-#include "HumanB.hpp"
+#ifndef REPLACE_HPP
+#define REPLACE_HPP
 
-int main()
+#include <iostream>
+#include <fstream>
+
+class Replace
 {
-	{
-		Weapon	club = Weapon("crude spiked club");
+	private:
+		std::string		_name;
+		std::string		_s1;
+		std::string		_s2;
+		std::fstream	_fd_in;
+		std::fstream	_fd_out;
+		bool			_is_fail;
+	public:
+		~Replace( void );
+		bool		ReadInput( void );
+		std::string	ReplaceWord(std::string	line);
+		void		ReplaceFromFileToFile();
+};
 
-		HumanA	bob("Bob", club);
-		bob.attack();
-		club.setType("some other type of club");
-		bob.attack();
-	}
-	{
-		Weapon	club = Weapon("crude spiked club");
-
-		HumanB jim("Jim");
-		jim.setWeapon(club);
-		jim.attack();
-		club.setType("some other type of club");
-		jim.attack();
-	}
-
-	return (0);
-}
+#endif
