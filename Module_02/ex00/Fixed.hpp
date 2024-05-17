@@ -1,24 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: meserghi <meserghi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/11 15:44:37 by meserghi          #+#    #+#             */
-/*   Updated: 2024/05/11 19:14:30 by meserghi         ###   ########.fr       */
+/*   Created: 2024/05/15 17:44:14 by meserghi          #+#    #+#             */
+/*   Updated: 2024/05/15 19:06:35 by meserghi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Harl.hpp"
+#ifndef FIXED_HPP
+#define FIXED_HPP
 
-int main (int ac, char **av)
+#include <iostream>
+
+class	Fixed
 {
-	Harl	clsHarl;
+	private :
+		int					_raw;
+		static const int	_fraction = 8;
+	public :
+		Fixed ( void );
+		Fixed ( class Fixed &cp );
+		class Fixed &operator=( class Fixed &cp);
+		int getRawBits( void );
+		void setRawBits( int const raw );
+		~Fixed ( void );
+};
 
-	if (ac == 2)
-		clsHarl.complain(av[1]);
-	else
-		std::cout << "Error you need : ./harlFilter (DEBUG, INFO, WARNING, ERROR)\n";
-	return (0);
-}
+#endif

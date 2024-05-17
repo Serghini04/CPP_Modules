@@ -5,20 +5,22 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: meserghi <meserghi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/11 15:44:37 by meserghi          #+#    #+#             */
-/*   Updated: 2024/05/11 19:14:30 by meserghi         ###   ########.fr       */
+/*   Created: 2024/05/15 17:43:38 by meserghi          #+#    #+#             */
+/*   Updated: 2024/05/15 19:21:01 by meserghi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Harl.hpp"
+#include "Fixed.hpp"
 
-int main (int ac, char **av)
+int main( void )
 {
-	Harl	clsHarl;
+	Fixed a;
+	Fixed b(a);
+	Fixed c;
 
-	if (ac == 2)
-		clsHarl.complain(av[1]);
-	else
-		std::cout << "Error you need : ./harlFilter (DEBUG, INFO, WARNING, ERROR)\n";
-	return (0);
+	c = b;
+	std::cout << a.getRawBits() << std::endl;
+	std::cout << b.getRawBits() << std::endl;
+	std::cout << c.getRawBits() << std::endl;
+	return 0;
 }
