@@ -6,7 +6,7 @@
 /*   By: meserghi <meserghi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 12:03:35 by meserghi          #+#    #+#             */
-/*   Updated: 2024/05/17 16:30:38 by meserghi         ###   ########.fr       */
+/*   Updated: 2024/05/18 11:12:04 by meserghi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -140,4 +140,33 @@ Fixed	&Fixed::operator--( int )
 {
 	--this->_raw;
 	return (*this);
+}
+
+
+Fixed	Fixed::max(Fixed const &a, Fixed const &b)
+{
+	if (a._raw > b._raw)
+		return (a);
+	return (b);
+}
+
+Fixed	Fixed::min(Fixed const &a, Fixed const &b)
+{
+	if (a._raw < b._raw)
+		return (a);
+	return (b);
+}
+
+Fixed	Fixed::min(Fixed &a, Fixed &b)
+{
+	if (a._raw < b._raw)
+		return (a);
+	return (b);
+}
+
+Fixed	Fixed::max(Fixed &a, Fixed &b)
+{
+	if (a._raw > b._raw)
+		return (a);
+	return (b);
 }

@@ -6,7 +6,7 @@
 /*   By: meserghi <meserghi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 12:04:06 by meserghi          #+#    #+#             */
-/*   Updated: 2024/05/17 16:21:09 by meserghi         ###   ########.fr       */
+/*   Updated: 2024/05/18 11:23:43 by meserghi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,9 @@ int main( void )
 	std::cout << a << std::endl;
 	std::cout << a++ << std::endl;
 	std::cout << a << std::endl;
+
 	std::cout << b << std::endl;
-	//std::cout << Fixed::max( a, b ) << std::endl;
+
+	std::cout << Fixed::max( a, b ) << std::endl;
 	return 0;
 }

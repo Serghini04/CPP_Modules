@@ -6,7 +6,7 @@
 /*   By: meserghi <meserghi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 12:03:14 by meserghi          #+#    #+#             */
-/*   Updated: 2024/05/17 16:29:15 by meserghi         ###   ########.fr       */
+/*   Updated: 2024/05/18 11:08:57 by meserghi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,9 +52,13 @@ class	Fixed
 		float toFloat ( void ) const;
 		Fixed& operator=(const Fixed &cp);
 
-	// static cmp :
+	// static cmp const:
+		static Fixed	max(Fixed const &a, Fixed const &b);
+		static Fixed	min(Fixed const &a, Fixed const &b);
 
-		;
+	// static cmp:
+		static Fixed	max(Fixed &a, Fixed &b);
+		static Fixed	min(Fixed &a, Fixed &b);
 
 		~Fixed ( void );
 };
