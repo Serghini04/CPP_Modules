@@ -6,7 +6,7 @@
 /*   By: meserghi <meserghi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 13:11:24 by meserghi          #+#    #+#             */
-/*   Updated: 2024/05/04 14:52:06 by meserghi         ###   ########.fr       */
+/*   Updated: 2024/07/18 21:13:01 by meserghi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,7 @@ int main()
 	Loop = true;
 	while (Loop)
 	{
-		std::cout << "Enter one of three commands. (ADD, SEARCH, EXIT)\n>> ";
-		std::cin >> Input;
+		Input = Contact::ReadInput("Enter one of three commands. (ADD, SEARCH, EXIT)\n>> ");
 		if (Input == "ADD")
 			User.AddContact();
 		else if (Input == "SEARCH")

@@ -6,7 +6,7 @@
 /*   By: meserghi <meserghi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 19:47:36 by meserghi          #+#    #+#             */
-/*   Updated: 2024/05/04 14:47:24 by meserghi         ###   ########.fr       */
+/*   Updated: 2024/07/18 22:19:49 by meserghi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 PhoneBook::PhoneBook()
 {
 	_i = 0;
+	_Size = 0;
 }
 void	PhoneBook::AddContact()
 {
@@ -22,6 +23,8 @@ void	PhoneBook::AddContact()
 	_i++;
 	if (_i == 8)
 		_i = 0;
+	if (_Size < 8)
+		_Size++;
 }
 void	PhoneBook::PrintContacts()
 {
@@ -29,19 +32,34 @@ void	PhoneBook::PrintContacts()
 
 	i = 0;
 	std::cout << "================ Phone Book =================\n";
-	while (i < _i)
+	while (i < Size())
 	{
 		_Contacts[i].Print();
 		i++;
 	}
 	std::cout << "=============================================\n";
-	std::cout << "Enter Index ? > ";
-	std::cin >> i;
-	if (i < _i)
+	i = StringToInt(Contact::ReadInput("Enter Index ? > "));
+	if (i >= 0 && i < Size())
 		_Contacts[i].PrintPerline();
+	else
+		std::cout << "	Invalid Index .\n";
 }
 
 bool	PhoneBook::Exit()
 {
 	return (false);
+}
+int		PhoneBook::StringToInt(std::string	input)
+{
+	int	nb;
+
+	if (input.length() != 1 || !isnumber(input[0]))
+		return (-1);
+	nb = input[0] - '0';
+	return (nb);
+}
+
+int	PhoneBook::Size()
+{
+	return (_Size);
 }

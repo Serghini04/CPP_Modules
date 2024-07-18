@@ -6,7 +6,7 @@
 /*   By: meserghi <meserghi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 16:50:11 by meserghi          #+#    #+#             */
-/*   Updated: 2024/05/04 14:46:12 by meserghi         ###   ########.fr       */
+/*   Updated: 2024/07/18 22:03:12 by meserghi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,12 @@ class PhoneBook
 {
 	private :
 		Contact		_Contacts[8];
+		int			_Size;
 		int			_i;
 	public :
 		PhoneBook();
+		int		Size();
+		int		StringToInt(std::string	input);
 		void	AddContact();
 		void	PrintContacts();
 		bool	Exit();

@@ -6,11 +6,11 @@
 #    By: meserghi <meserghi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/26 21:01:01 by meserghi          #+#    #+#              #
-#    Updated: 2024/05/03 15:29:02 by meserghi         ###   ########.fr        #
+#    Updated: 2024/07/17 17:56:54 by meserghi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-FILE = ex00.cpp
+FILE = megaphone.cpp
 
 OBJ = ${FILE:.cpp=.o}
 
@@ -23,7 +23,7 @@ all : ${NAME}
 ${NAME} : ${OBJ}
 	c++ ${FLAGS} ${OBJ} -o ${NAME}
 
-%.o : %.cpp ex00.cpp.h
+%.o : %.cpp
 	c++ ${FLAGS} $< -c -o $@
 
 clean :

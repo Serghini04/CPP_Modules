@@ -6,11 +6,24 @@
 /*   By: meserghi <meserghi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 19:49:29 by meserghi          #+#    #+#             */
-/*   Updated: 2024/05/04 14:44:14 by meserghi         ###   ########.fr       */
+/*   Updated: 2024/07/18 22:01:54 by meserghi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ex01.hpp"
+
+std::string	Contact::ReadInput(std::string msg)
+{
+	std::string	res;
+	while (res.empty())
+	{
+		std::cout << msg;
+		std::getline(std::cin, res);
+		if (std::cin.fail())
+			exit(1);
+	}
+	return (res);
+}
 
 void	Contact::Print()
 {
@@ -32,23 +45,18 @@ void	Contact::Print()
 void	Contact::PrintPerline()
 {
 	std::cout << "==== Contact (" << _Index << ") ====\n";
-	std::cout << " >" << _FirstName << std::endl;
-	std::cout << " >" << _LastName << std::endl;
-	std::cout << " >" << _NickName << std::endl;
+	std::cout << "First Name > " << _FirstName << std::endl;
+	std::cout << "Last Name  > " << _LastName << std::endl;
+	std::cout << "Nick Name  > " << _NickName << std::endl;
 	std::cout << "=====================\n";
 }
 
 void	Contact::SetContact(int Index)
 {
-	std::cout << "Enter Fisrt Name :\n>> ";
-	std::cin >> _FirstName;
-	std::cout << "Enter Last Name :\n>> ";
-	std::cin >> _LastName;
-	std::cout << "Enter Nick Name :\n>> ";
-	std::cin >> _NickName;
-	std::cout << "Enter Phone Number :\n>> ";
-	std::cin >> _PhoneNumber;
-	std::cout << "Enter Darkes Secret :\n>> ";
-	std::cin >> _DarkestSecret;
+	_FirstName = ReadInput("Enter Fisrt Name :\n>> ");
+	_LastName = ReadInput("Enter Last Name :\n>> ");
+	_NickName = ReadInput("Enter Nick Name :\n>> ");
+	_PhoneNumber = ReadInput("Enter Phone Number :\n>> ");
+	_DarkestSecret = ReadInput("Enter Darkes Secret :\n>> ");
 	_Index = Index;
 }
