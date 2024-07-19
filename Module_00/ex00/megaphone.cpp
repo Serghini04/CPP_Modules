@@ -6,7 +6,7 @@
 /*   By: meserghi <meserghi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 19:08:57 by meserghi          #+#    #+#             */
-/*   Updated: 2024/07/17 17:56:16 by meserghi         ###   ########.fr       */
+/*   Updated: 2024/07/19 18:04:21 by meserghi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,9 @@ int main(int ac, char **av)
 		return (0);
 	}
 	while (++i < ac)
+	{
 		Megaphone(av[i]);
+	}
 	std::cout << std::endl;
 	return (0);
 }

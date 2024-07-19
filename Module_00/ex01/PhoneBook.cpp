@@ -6,7 +6,7 @@
 /*   By: meserghi <meserghi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 19:47:36 by meserghi          #+#    #+#             */
-/*   Updated: 2024/07/19 17:06:19 by meserghi         ###   ########.fr       */
+/*   Updated: 2024/07/19 17:59:54 by meserghi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@ void	PhoneBook::AddContact()
 {
 	_Contacts[_i].SetContact(_i);
 	_i++;
-	if (_i == 2)
+	if (_i == 8)
 		_i = 0;
-	if (_Size < 2)
+	if (_Size < 8)
 		_Size++;
 }
 void	PhoneBook::PrintContacts()
