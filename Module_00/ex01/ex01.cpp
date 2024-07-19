@@ -6,7 +6,7 @@
 /*   By: meserghi <meserghi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 13:11:24 by meserghi          #+#    #+#             */
-/*   Updated: 2024/07/18 21:13:01 by meserghi         ###   ########.fr       */
+/*   Updated: 2024/07/19 16:41:21 by meserghi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,6 @@ int main()
 		else if (Input == "EXIT")
 			Loop = User.Exit();
 	}
-	std::cout << "Exiting the phonebook. Goodbye!\n";;
+	std::cout << "Exiting the phonebook. Goodbye!\n";
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: meserghi <meserghi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 19:49:29 by meserghi          #+#    #+#             */
-/*   Updated: 2024/07/18 22:01:54 by meserghi         ###   ########.fr       */
+/*   Updated: 2024/07/19 16:51:46 by meserghi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 std::string	Contact::ReadInput(std::string msg)
 {
 	std::string	res;
+
 	while (res.empty())
 	{
 		std::cout << msg;
@@ -28,15 +29,15 @@ std::string	Contact::ReadInput(std::string msg)
 void	Contact::Print()
 {
 	std::cout << "|" << std::setw(10) << _Index << "|";
-	if (_FirstName.length() < 10)
+	if (_FirstName.length() <= 10)
 		std::cout << std::setw(10) << _FirstName << "|";
 	else
 		std::cout << std::setw(10) << _FirstName.substr(0, 9) + "." << "|";
-	if (_LastName.length() < 10)
+	if (_LastName.length() <= 10)
 		std::cout << std::setw(10) << _LastName << "|";
 	else
 		std::cout << std::setw(10) << _LastName.substr(0, 9) + "." << "|";
-	if (_NickName.length() < 10)
+	if (_NickName.length() <= 10)
 		std::cout << std::setw(10) << _NickName << "|\n";
 	else
 		std::cout << std::setw(10) << _NickName.substr(0, 9) + "." << "|\n";
@@ -45,9 +46,11 @@ void	Contact::Print()
 void	Contact::PrintPerline()
 {
 	std::cout << "==== Contact (" << _Index << ") ====\n";
-	std::cout << "First Name > " << _FirstName << std::endl;
-	std::cout << "Last Name  > " << _LastName << std::endl;
-	std::cout << "Nick Name  > " << _NickName << std::endl;
+	std::cout << "First Name    > " << _FirstName << std::endl;
+	std::cout << "Last Name     > " << _LastName << std::endl;
+	std::cout << "Nick Name     > " << _NickName << std::endl;
+	std::cout << "Phone Number  > " << _PhoneNumber << std::endl;
+	std::cout << "Darkes Secret > " << _DarkestSecret << std::endl;
 	std::cout << "=====================\n";
 }
 

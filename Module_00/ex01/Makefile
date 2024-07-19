@@ -6,18 +6,9 @@
 #    By: meserghi <meserghi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/26 21:09:07 by meserghi          #+#    #+#              #
-#    Updated: 2024/05/08 11:27:33 by meserghi         ###   ########.fr        #
+#    Updated: 2024/07/19 17:31:10 by meserghi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
-
-
-# you need to add this if cin failing :
-#		short Number;
-#		while (!(cin >> Number)) {
-#			cin.clear();
-#			cin.ignore(numeric_limits<streamsize>::max(), '\n');
-#			cout << ErrorMessage;
-#		}
 
 FILE = ex01.cpp PhoneBook.cpp Contact.cpp
 
@@ -31,6 +22,12 @@ all : ${NAME}
 
 ${NAME} : ${OBJ}
 	c++ ${FLAGS} ${OBJ} -o ${NAME}
+
+Contact.o : Contact.hpp
+	c++ ${FLAGS} -c Contact.cpp
+
+PhoneBook.o : PhoneBook.hpp
+	c++ ${FLAGS} -c PhoneBook.cpp
 
 %.o : %.cpp ex01.hpp
 	c++ ${FLAGS} -c $<

@@ -6,7 +6,7 @@
 /*   By: meserghi <meserghi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/04 15:05:16 by meserghi          #+#    #+#             */
-/*   Updated: 2024/05/07 11:28:37 by meserghi         ###   ########.fr       */
+/*   Updated: 2024/07/19 17:36:23 by meserghi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,12 +44,12 @@ void	Account::_displayTimestamp( void )
 {
 	std::time_t	MyTime = std::time(0);
 	std::cout << "[";
-	std::cout << std::setfill('0') << std::localtime(&MyTime)->tm_year + 1900 <<std::flush;
-	std::cout << std::setw(2) << std::localtime(&MyTime)->tm_mon + 1 <<std::flush;
-	std::cout << std::setw(2) << std::localtime(&MyTime)->tm_mday << "_" <<std::flush;
-	std::cout << std::setw(2) << std::localtime(&MyTime)->tm_hour <<std::flush;
-	std::cout << std::setw(2) << std::localtime(&MyTime)->tm_min <<std::flush;
-	std::cout << std::setw(2) << std::localtime(&MyTime)->tm_sec << "] " <<std::flush;
+	std::cout << std::setfill('0') << std::localtime(&MyTime)->tm_year + 1900;
+	std::cout << std::setw(2) << std::localtime(&MyTime)->tm_mon + 1;
+	std::cout << std::setw(2) << std::localtime(&MyTime)->tm_mday << "_";
+	std::cout << std::setw(2) << std::localtime(&MyTime)->tm_hour;
+	std::cout << std::setw(2) << std::localtime(&MyTime)->tm_min;
+	std::cout << std::setw(2) << std::localtime(&MyTime)->tm_sec << "] ";
 }
 
 Account::Account( int initial_deposit )
@@ -68,6 +68,7 @@ Account::Account( void )
 	_accountIndex = _nbAccounts;
 	_nbAccounts++;
 	_amount = 0;
+	_nbDeposits = 0;
 	_displayTimestamp();
 	std::cout << "index:" << _accountIndex << ";amount:" << _nbDeposits << ";created\n";
 }
@@ -112,7 +113,7 @@ void	Account::makeDeposit( int deposit )
 	_totalAmount += deposit;
 	std::cout << "index:"<< _accountIndex << \
 		";p_amount:" << _amount <<\
-		";deposits:" << deposit;
+		";deposit:" << deposit;
 		_amount += deposit;
 	std::cout << ";amount:" << _amount <<\
 		";nb_deposits:" << _nbDeposits << std::endl;
