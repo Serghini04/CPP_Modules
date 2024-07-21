@@ -6,7 +6,7 @@
 /*   By: meserghi <meserghi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 13:35:31 by meserghi          #+#    #+#             */
-/*   Updated: 2024/05/08 14:08:08 by meserghi         ###   ########.fr       */
+/*   Updated: 2024/07/20 17:26:26 by meserghi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ Zombie	*zombieHorde( int N, std::string name )
 	int		i;
 
 	i = 0;
+	if (N <= 0)
+		return (NULL);
 	clsZombie = new Zombie[N];
 	while (i < N)
 	{

@@ -6,7 +6,7 @@
 /*   By: meserghi <meserghi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/10 12:14:14 by meserghi          #+#    #+#             */
-/*   Updated: 2024/05/11 16:03:09 by meserghi         ###   ########.fr       */
+/*   Updated: 2024/07/21 17:34:41 by meserghi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int main()
 	{
 		std::cout << "Please enter a level (DEBUG, INFO, WARNING, ERROR): ";
 		std::string level;
-		std::cin >> level;
+		std::getline(std::cin, level);
 		if (std::cin.fail())
 			break;
 		h.complain(level);

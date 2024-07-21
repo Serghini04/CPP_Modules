@@ -6,7 +6,7 @@
 /*   By: meserghi <meserghi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 17:02:52 by meserghi          #+#    #+#             */
-/*   Updated: 2024/05/10 12:09:07 by meserghi         ###   ########.fr       */
+/*   Updated: 2024/07/21 18:43:58 by meserghi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,27 +22,26 @@ Replace::~Replace( void )
 	std::cout << "========== End ==========\n";
 }
 
-bool	Replace::ReadInput( void )
+bool		Replace::SetVar(std::string NameFile, std::string S1, std::string S2)
 {
-	std::cout << "Enter name file : ";
-	std::cin >> _name;
+	_name = NameFile;
+	_s1 = S1;
+	_s2 = S2;
 	_fd_in.open(_name, std::ios::in);
+	if(_s1.empty())
+		return (_is_fail = true, false);
 	if (!_fd_in.is_open())
 	{
-		std::cout << "Error : file not found ???\n";
+		std::cout << "Error : file "<< _name << " not found ?\n";
 		_is_fail = true;
 		return (false);
 	}
-	std::cout << "  Enter s1 : ";
-	std::cin >> _s1;
-	std::cout << "  Enter s2 : ";
-	std::cin >> _s2;
 	_fd_out.open(_name + ".replace", std::ios::out);
 	if (!_fd_out.is_open())
 	{
 		_fd_in.close();
 		_is_fail = true;
-		std::cout << "Error : failing to open file ???\n";
+		std::cout << "Error : failing to open file" << _name + ".replace" << "?\n";
 		return (false);
 	}
 	_is_fail = false;

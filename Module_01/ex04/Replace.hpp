@@ -6,7 +6,7 @@
 /*   By: meserghi <meserghi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 17:04:13 by meserghi          #+#    #+#             */
-/*   Updated: 2024/05/10 12:09:38 by meserghi         ###   ########.fr       */
+/*   Updated: 2024/07/21 16:02:20 by meserghi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,9 @@ class Replace
 		bool			_is_fail;
 	public:
 		~Replace( void );
-		bool		ReadInput( void );
-		std::string	ReplaceWord(std::string	line);
 		void		ReplaceFromFileToFile();
+		std::string	ReplaceWord(std::string	line);
+		bool		SetVar(std::string NameFile, std::string S1, std::string S2);
 };
 
 #endif
