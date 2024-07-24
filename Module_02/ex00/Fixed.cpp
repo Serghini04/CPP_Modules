@@ -6,7 +6,7 @@
 /*   By: meserghi <meserghi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 17:44:10 by meserghi          #+#    #+#             */
-/*   Updated: 2024/05/15 21:23:19 by meserghi         ###   ########.fr       */
+/*   Updated: 2024/07/22 14:35:41 by meserghi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ Fixed::Fixed ( class Fixed &cp )
 class Fixed	&Fixed::operator=( class Fixed &cp)
 {
 	std::cout << "Copy assignment operator calle\n";
-	_raw = cp.getRawBits();
-	return (cp);
+	// if (this != &cp)
+		_raw = cp.getRawBits();
+	return (*this);
 }

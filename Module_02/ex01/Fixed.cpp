@@ -6,7 +6,7 @@
 /*   By: meserghi <meserghi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 21:33:49 by meserghi          #+#    #+#             */
-/*   Updated: 2024/05/17 11:53:02 by meserghi         ###   ########.fr       */
+/*   Updated: 2024/07/23 20:08:28 by meserghi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,20 +27,18 @@ Fixed::~Fixed ( void )
 Fixed::Fixed ( int const &nb )
 {
 	std::cout << "Int constructor called\n";
-	// 8 is 256 : nb * 256;
 	_raw = nb << _fraction;
 }
 
 Fixed::Fixed ( float const &nb )
 {
 	std::cout << "Float constructor called\n";
-	// this (1 << _fraction) like 2 ^ _fraction and you can't left shift for float number.
 	_raw = std::roundf(nb * (1 << _fraction));
 }
 
 float Fixed::toFloat( void ) const
 {
-	return (static_cast<float>(_raw) / (1 << _fraction));
+	return ((float)(_raw) / (1 << _fraction));
 }
 
 int Fixed::toInt( void ) const
