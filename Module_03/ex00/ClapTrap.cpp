@@ -9,6 +9,23 @@ ClapTrap::ClapTrap (std::string Name)
 	std::cout << "Create " << _Name << " ClapTrap.\n";
 }
 
+ClapTrap::ClapTrap (ClapTrap &clone)
+{
+	_Name = clone._Name;
+	_HitPoints = clone._HitPoints;
+	_EnergyPoints = clone._EnergyPoints;
+	_AttackDamage = clone._AttackDamage;
+}
+
+ClapTrap &ClapTrap::operator=(ClapTrap &clone)
+{
+	_Name = clone._Name;
+	_HitPoints = clone._HitPoints;
+	_EnergyPoints = clone._EnergyPoints;
+	_AttackDamage = clone._AttackDamage;
+	return (*this);
+}
+
 ClapTrap::~ClapTrap (void)
 {
 	std::cout << "Destroy " << _Name << " ClapTrap.\n";

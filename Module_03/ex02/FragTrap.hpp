@@ -4,9 +4,12 @@
 # include "ClapTrap.hpp"
 # include "ScavTrap.hpp"
 
-class FragTrap
+class FragTrap : public ClapTrap
 {
-	
+	public :
+		FragTrap(std::string Name);
+		~FragTrap(void);
+		void	highFivesGuys(void);
 };
 
 #endif

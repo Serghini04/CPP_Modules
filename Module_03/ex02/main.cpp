@@ -1,8 +1,8 @@
-#include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 
 int main()
 {
-	ScavTrap	A("ddd");
+	FragTrap	A("ddd");
 
 	return (0);
 }

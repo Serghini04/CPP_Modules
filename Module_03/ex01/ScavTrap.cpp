@@ -15,5 +15,5 @@ void	ScavTrap::guardGate()
 
 ScavTrap::~ScavTrap (void)
 {
-
+	std::cout << "Destroy " << _Name << " ScavTrap.\n";
 }
