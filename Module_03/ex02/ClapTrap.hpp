@@ -4,18 +4,19 @@
 
 class ClapTrap
 {
-	private :
+	protected :
 		std::string	_Name;
 		int			_HitPoints;
 		int			_EnergyPoints;
 		int			_AttackDamage;
 	public :
 		ClapTrap (std::string Name);
-		ClapTrap (ClapTrap &clone);
-		ClapTrap &operator=(ClapTrap &clone);
 		void	attack(const std::string& target);
 		void	takeDamage(unsigned int amount);
 		void	beRepaired(unsigned int amount);
+		ClapTrap (void);
+		ClapTrap (ClapTrap &clone);
+		ClapTrap &operator=(ClapTrap &clone);
 		~ClapTrap (void);
 
 };

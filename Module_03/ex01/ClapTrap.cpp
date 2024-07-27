@@ -9,12 +9,21 @@ ClapTrap::ClapTrap (std::string Name)
 	std::cout << "Create " << _Name << " ClapTrap.\n";
 }
 
+ClapTrap::ClapTrap ()
+{
+	_HitPoints = 10;
+	_EnergyPoints = 10;
+	_AttackDamage = 0;
+	std::cout << "Create Unknown ClapTrap.\n";
+}
+
 ClapTrap::ClapTrap (ClapTrap &clone)
 {
 	_Name = clone._Name;
 	_HitPoints = clone._HitPoints;
 	_EnergyPoints = clone._EnergyPoints;
 	_AttackDamage = clone._AttackDamage;
+	std::cout << "Create " << _Name << " ClapTrap.\n";
 }
 
 ClapTrap &ClapTrap::operator=(ClapTrap &clone)

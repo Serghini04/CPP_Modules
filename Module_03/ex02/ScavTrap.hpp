@@ -7,8 +7,11 @@ class ScavTrap : public ClapTrap
 {
 	public :
 		ScavTrap ( std::string Name );
-		~ScavTrap ( void );
 		void	guardGate();
+		ScavTrap (void);
+		ScavTrap (ScavTrap &clone);
+		ScavTrap &operator=(ScavTrap &clone);
+		~ScavTrap ( void );
 };
 
 #endif

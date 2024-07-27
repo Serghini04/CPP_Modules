@@ -1,4 +1,5 @@
-FILE = main.cpp ClapTrap.cpp FragTrap.cpp ScavTrap.cpp
+FILE = main.cpp ClapTrap.cpp FragTrap.cpp ScavTrap.cpp\
+	DiamondTrap.cpp
 
 OBJ = ${FILE:.cpp=.o}
 
@@ -11,7 +12,7 @@ all : ${NAME}
 ${NAME} : ${OBJ}
 	c++ ${FLAGS} ${OBJ} -o ${NAME}
 
-%.o : %.cpp ClapTrap.hpp ScavTrap.hpp  FragTrap.hpp
+%.o : %.cpp ClapTrap.hpp ScavTrap.hpp  FragTrap.hpp DiamondTrap.hpp
 	c++ ${FLAGS} -c $<
 
 clean :
