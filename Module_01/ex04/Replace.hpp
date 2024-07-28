@@ -6,7 +6,7 @@
 /*   By: meserghi <meserghi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 17:04:13 by meserghi          #+#    #+#             */
-/*   Updated: 2024/07/21 16:02:20 by meserghi         ###   ########.fr       */
+/*   Updated: 2024/07/27 12:11:03 by meserghi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 class Replace
 {
 	private:
-		std::string		_name;
+		std::string		_Name;
 		std::string		_s1;
 		std::string		_s2;
 		std::fstream	_fd_in;

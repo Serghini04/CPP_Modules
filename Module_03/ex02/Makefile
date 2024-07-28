@@ -4,7 +4,7 @@ OBJ = ${FILE:.cpp=.o}
 
 FLAGS = -std=c++98 -Wall -Wextra -Werror
 
-NAME = a.out
+NAME = Frag
 
 all : ${NAME}
 

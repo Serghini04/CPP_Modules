@@ -2,7 +2,6 @@
 
 int main()
 {
-	DiamondTrap	A("D");
-
+	DiamondTrap	A("Ana");
 	return (0);
 }

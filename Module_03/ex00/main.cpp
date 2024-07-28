@@ -3,7 +3,7 @@
 int main()
 {
 	ClapTrap	A("A");
-	ClapTrap	B(A);
+	ClapTrap	B("B");
 
 	A.attack("B");
 	B.takeDamage(10);

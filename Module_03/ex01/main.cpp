@@ -2,7 +2,9 @@
 
 int main()
 {
-	ScavTrap	A("ddd");
+	ScavTrap	A("Me");
 
+	A.guardGate();
+	A.attack("You");
 	return (0);
 }

@@ -3,9 +3,9 @@ FILE = main.cpp ClapTrap.cpp FragTrap.cpp ScavTrap.cpp\
 
 OBJ = ${FILE:.cpp=.o}
 
-FLAGS = -std=c++98 -Wall -Wextra -Werror
+FLAGS = -std=c++98 -Wall -Wextra -Werror -Wshadow -Wno-shadow
 
-NAME = a.out
+NAME = Diamond
 
 all : ${NAME}
 

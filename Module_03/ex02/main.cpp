@@ -2,7 +2,10 @@
 
 int main()
 {
-	FragTrap	A("ddd");
+	FragTrap	A;
+	FragTrap	B("ana");
 
+	A.attack("and");
+	A.highFivesGuys();
 	return (0);
 }
