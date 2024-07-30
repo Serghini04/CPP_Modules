@@ -1,23 +1,29 @@
 #include <iostream>
+#include <string>
+#include <cmath>
 
-
-int main()
+void	split_nb(std::string line)
 {
-	int nb;
-	std::cin >> nb;
-	int sum = 0;
-	while (nb)
+	for (int i = line.length() - 1, pow = 1; i >= 0 ; i--)
 	{
-		int n1, n2, n3;
-		int c = 0;
-		std::cin >> n1 >> n2 >> n3;
-		c += (n1 == 1) * 1;
-		c += (n2 == 1) * 1;
-		c += (n3 == 1) * 1;
-		if (c >= 2)
-			sum++;
-		nb--;
+		if (line[i] != 48)
+		{
+			std::cout << (int)(line[i] - 48) * pow << " ";
+		}
+		pow *= 10;
 	}
-	std::cout << sum << std::endl;
-	return (0);
+	std::cout << "\n";
+}
+
+int main() {
+    int t;
+    std::cin >> t;
+
+    while (t--) {
+		int nb;
+		std::cin >> nb;
+		split_nb(std::to_string(nb));
+    }
+
+    return 0;
 }
