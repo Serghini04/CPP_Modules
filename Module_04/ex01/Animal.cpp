@@ -4,13 +4,13 @@
 Animal::Animal(std::string Type)
 {
 	type = Type;
-	std::cout << "Constructor Animal.\n";
+	std::cout <<  type <<" : Constructor Animal.\n";
 }
 
 Animal::Animal()
 {
 	type = "Unknown";
-	std::cout << "Constructor Animal.\n";
+	std::cout << "Default Constructor Animal.\n";
 }
 
 

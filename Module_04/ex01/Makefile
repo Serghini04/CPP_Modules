@@ -1,4 +1,5 @@
-FILE = main.cpp Animal.cpp Dog.cpp Cat.cpp WrongCat.cpp WrongAnimal.cpp
+FILE = main.cpp Animal.cpp Dog.cpp Cat.cpp WrongCat.cpp WrongAnimal.cpp\
+		Brain.cpp
 
 OBJ = ${FILE:.cpp=.o}
 
