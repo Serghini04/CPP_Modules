@@ -6,7 +6,7 @@
 /*   By: meserghi <meserghi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 17:02:52 by meserghi          #+#    #+#             */
-/*   Updated: 2024/07/21 18:43:58 by meserghi         ###   ########.fr       */
+/*   Updated: 2024/07/27 12:11:03 by meserghi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,24 +24,24 @@ Replace::~Replace( void )
 
 bool		Replace::SetVar(std::string NameFile, std::string S1, std::string S2)
 {
-	_name = NameFile;
+	_Name = NameFile;
 	_s1 = S1;
 	_s2 = S2;
-	_fd_in.open(_name, std::ios::in);
+	_fd_in.open(_Name, std::ios::in);
 	if(_s1.empty())
 		return (_is_fail = true, false);
 	if (!_fd_in.is_open())
 	{
-		std::cout << "Error : file "<< _name << " not found ?\n";
+		std::cout << "Error : file "<< _Name << " not found ?\n";
 		_is_fail = true;
 		return (false);
 	}
-	_fd_out.open(_name + ".replace", std::ios::out);
+	_fd_out.open(_Name + ".replace", std::ios::out);
 	if (!_fd_out.is_open())
 	{
 		_fd_in.close();
 		_is_fail = true;
-		std::cout << "Error : failing to open file" << _name + ".replace" << "?\n";
+		std::cout << "Error : failing to open file" << _Name + ".replace" << "?\n";
 		return (false);
 	}
 	_is_fail = false;

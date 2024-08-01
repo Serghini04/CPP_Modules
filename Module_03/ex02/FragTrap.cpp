@@ -6,30 +6,36 @@
 /*   By: meserghi <meserghi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 20:47:37 by meserghi          #+#    #+#             */
-/*   Updated: 2024/08/01 20:47:39 by meserghi         ###   ########.fr       */
+/*   Updated: 2024/08/01 20:59:40 by meserghi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap (std::string Name)
+FragTrap::FragTrap (std::string Name) : ClapTrap(Name)
 {
-	_Name = Name;
-	_HitPoints = 10;
-	_EnergyPoints = 10;
-	_AttackDamage = 0;
-	std::cout << "Create " << _Name << " ClapTrap.\n";
+	_HitPoints = 100;
+	_EnergyPoints = 100;
+	_AttackDamage = 30;
+	std::cout << "Create : " << _Name << " FragTrap.\n";
 }
 
-ClapTrap::ClapTrap (ClapTrap &clone)
+FragTrap::FragTrap (void) : ClapTrap("Unknown")
 {
-	_Name = clone._Name;
+	_HitPoints = 100;
+	_EnergyPoints = 100;
+	_AttackDamage = 30;
+	std::cout << "Default Constructor : "<< _Name << " FragTrap.\n";
+}
+
+FragTrap::FragTrap (FragTrap &clone) : ClapTrap(clone._Name)
+{
 	_HitPoints = clone._HitPoints;
 	_EnergyPoints = clone._EnergyPoints;
 	_AttackDamage = clone._AttackDamage;
 }
 
-ClapTrap &ClapTrap::operator=(ClapTrap &clone)
+FragTrap &FragTrap::operator=(FragTrap &clone)
 {
 	_Name = clone._Name;
 	_HitPoints = clone._HitPoints;
@@ -38,23 +44,12 @@ ClapTrap &ClapTrap::operator=(ClapTrap &clone)
 	return (*this);
 }
 
-ClapTrap::~ClapTrap (void)
+void	FragTrap::highFivesGuys(void)
 {
-	std::cout << "Destroy " << _Name << " ClapTrap.\n";
+	std::cout << "positive high fives reques.\n";
 }
 
-void ClapTrap::attack(const std::string& target)
+FragTrap::~FragTrap (void)
 {
-	std::cout << "ClapTrap " << target << " attacks, causing \n";
-}
-
-void ClapTrap::takeDamage(unsigned int amount)
-{
-	_AttackDamage += amount;
-}
-
-void ClapTrap::beRepaired(unsigned int amount)
-{
-	_HitPoints += amount;
-	_EnergyPoints--;
+	std::cout << "Destroy : " << _Name << " FragTrap.\n";
 }

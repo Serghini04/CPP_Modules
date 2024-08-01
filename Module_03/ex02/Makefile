@@ -6,7 +6,7 @@
 #    By: meserghi <meserghi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/01 20:47:59 by meserghi          #+#    #+#              #
-#    Updated: 2024/08/01 20:48:01 by meserghi         ###   ########.fr        #
+#    Updated: 2024/08/01 20:59:51 by meserghi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ OBJ = ${FILE:.cpp=.o}
 
 FLAGS = -std=c++98 -Wall -Wextra -Werror
 
-NAME = a.out
+NAME = Frag
 
 all : ${NAME}
 
