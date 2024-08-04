@@ -37,11 +37,8 @@ void Character::unequip(int idx)
 
 void Character::use(int idx, ICharacter& target)
 {
-	if (idx >= 0 && idx < _index)
-	{
-		std::cout <<_inventory[idx] << std::endl;
+	if (idx >= 0 && idx < _index && _inventory[idx])
 		_inventory[idx]->use(target);
-	}
 }
 
 Character::~Character()
