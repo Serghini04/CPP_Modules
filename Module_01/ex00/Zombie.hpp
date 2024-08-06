@@ -6,7 +6,7 @@
 /*   By: meserghi <meserghi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/07 11:45:26 by meserghi          #+#    #+#             */
-/*   Updated: 2024/05/08 13:47:11 by meserghi         ###   ########.fr       */
+/*   Updated: 2024/08/06 08:42:23 by meserghi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 #define ZOMBIE_HPP
 
 #include <iostream>
-
 
 class	Zombie
 {

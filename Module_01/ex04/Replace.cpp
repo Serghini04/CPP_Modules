@@ -6,7 +6,7 @@
 /*   By: meserghi <meserghi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 17:02:52 by meserghi          #+#    #+#             */
-/*   Updated: 2024/07/27 12:11:03 by meserghi         ###   ########.fr       */
+/*   Updated: 2024/08/06 10:48:39 by meserghi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,12 @@ bool		Replace::SetVar(std::string NameFile, std::string S1, std::string S2)
 	_Name = NameFile;
 	_s1 = S1;
 	_s2 = S2;
-	_fd_in.open(_Name, std::ios::in);
-	if(_s1.empty())
+	if(_s1.empty() || _s2.empty())
+	{
+		std::cout << "   => Invalid args. <=\n";
 		return (_is_fail = true, false);
+	}
+	_fd_in.open(_Name, std::ios::in);
 	if (!_fd_in.is_open())
 	{
 		std::cout << "Error : file "<< _Name << " not found ?\n";
@@ -39,7 +42,6 @@ bool		Replace::SetVar(std::string NameFile, std::string S1, std::string S2)
 	_fd_out.open(_Name + ".replace", std::ios::out);
 	if (!_fd_out.is_open())
 	{
-		_fd_in.close();
 		_is_fail = true;
 		std::cout << "Error : failing to open file" << _Name + ".replace" << "?\n";
 		return (false);
@@ -65,15 +67,15 @@ std::string	Replace::ReplaceWord(std::string	line)
 		res += _s2;
 		line.erase(0, pos + _s1.length());
 	}
-	return (res + '\n');
+	return (res);
 }
 
 void	Replace::ReplaceFromFileToFile()
 {
 	std::string	line;
+	std::string	res;
 
 	while (std::getline(_fd_in, line))
-	{
-		_fd_out << ReplaceWord(line);
-	}
+		res += line + "\n";
+	_fd_out << ReplaceWord(res);
 }

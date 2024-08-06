@@ -6,7 +6,7 @@
 /*   By: meserghi <meserghi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/11 14:07:16 by meserghi          #+#    #+#             */
-/*   Updated: 2024/07/27 11:21:47 by meserghi         ###   ########.fr       */
+/*   Updated: 2024/08/06 10:52:27 by meserghi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	Harl::error( void )
 
 void	Harl::complain( std::string level )
 {
-	std::string	cmp[] = {"DEBUG" "INFO" "WARNING" "ERROR"};
+	std::string	cmp[] = {"DEBUG", "INFO", "WARNING", "ERROR"};
 
 	void	(Harl::*ptrlevels[4])( void ) = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
 	int	i;

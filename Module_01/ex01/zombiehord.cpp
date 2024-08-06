@@ -6,7 +6,7 @@
 /*   By: meserghi <meserghi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 13:35:31 by meserghi          #+#    #+#             */
-/*   Updated: 2024/07/29 09:51:41 by meserghi         ###   ########.fr       */
+/*   Updated: 2024/08/06 09:16:13 by meserghi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ Zombie	*zombieHorde( int N, std::string name )
 	if (N <= 0)
 		return (NULL);
 	clsZombie = new Zombie[N];
+	if (!clsZombie)
+		return (NULL);
 	while (i < N)
 	{
 		clsZombie[i].SetName(name);
