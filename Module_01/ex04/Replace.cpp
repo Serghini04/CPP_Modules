@@ -6,7 +6,7 @@
 /*   By: meserghi <meserghi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 17:02:52 by meserghi          #+#    #+#             */
-/*   Updated: 2024/08/06 10:48:39 by meserghi         ###   ########.fr       */
+/*   Updated: 2024/08/06 13:48:35 by meserghi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ bool		Replace::SetVar(std::string NameFile, std::string S1, std::string S2)
 		_is_fail = true;
 		return (false);
 	}
-	_fd_out.open(_Name + ".replace", std::ios::out);
+	_fd_out.open((_Name + ".replace").c_str(), std::ios::out);
 	if (!_fd_out.is_open())
 	{
 		_is_fail = true;
