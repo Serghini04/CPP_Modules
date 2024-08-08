@@ -6,7 +6,7 @@
 /*   By: meserghi <meserghi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 21:30:47 by meserghi          #+#    #+#             */
-/*   Updated: 2024/07/22 14:25:19 by meserghi         ###   ########.fr       */
+/*   Updated: 2024/08/08 11:17:47 by meserghi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,12 @@
 
 #include <iostream>
 #include <cmath>
+
 class	Fixed
 {
 	private :
 		int					_raw;
-		static const int	_fraction = 8;
+		static const int	_fraction;
 	public :
 		Fixed ( void );
 		Fixed ( int const &nb );

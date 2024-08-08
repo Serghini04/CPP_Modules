@@ -6,7 +6,7 @@
 /*   By: meserghi <meserghi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 17:44:14 by meserghi          #+#    #+#             */
-/*   Updated: 2024/05/15 19:06:35 by meserghi         ###   ########.fr       */
+/*   Updated: 2024/08/08 11:12:01 by meserghi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,12 @@ class	Fixed
 {
 	private :
 		int					_raw;
-		static const int	_fraction = 8;
+		static const int	_fraction;
 	public :
 		Fixed ( void );
-		Fixed ( class Fixed &cp );
-		class Fixed &operator=( class Fixed &cp);
-		int getRawBits( void );
+		Fixed ( const Fixed &cp );
+		Fixed &operator=( const Fixed &cp);
+		int getRawBits( void ) const;
 		void setRawBits( int const raw );
 		~Fixed ( void );
 };

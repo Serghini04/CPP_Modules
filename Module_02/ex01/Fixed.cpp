@@ -6,11 +6,13 @@
 /*   By: meserghi <meserghi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 21:33:49 by meserghi          #+#    #+#             */
-/*   Updated: 2024/07/25 14:24:52 by meserghi         ###   ########.fr       */
+/*   Updated: 2024/08/08 11:43:32 by meserghi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
+
+const int Fixed::_fraction = 8;
 
 Fixed::Fixed ( void )
 {

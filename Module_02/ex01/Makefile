@@ -6,7 +6,7 @@
 #    By: meserghi <meserghi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/15 21:25:20 by meserghi          #+#    #+#              #
-#    Updated: 2024/05/16 16:19:14 by meserghi         ###   ########.fr        #
+#    Updated: 2024/08/08 11:18:55 by meserghi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ OBJ = ${FILE:.cpp=.o}
 
 FLAGS = -std=c++98 -Wall -Wextra -Werror
 
-NAME = a.out
+NAME = Fixed
 
 all : ${NAME}
 

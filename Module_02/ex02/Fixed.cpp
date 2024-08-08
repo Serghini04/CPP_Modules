@@ -6,11 +6,13 @@
 /*   By: meserghi <meserghi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 12:03:35 by meserghi          #+#    #+#             */
-/*   Updated: 2024/07/25 14:45:32 by meserghi         ###   ########.fr       */
+/*   Updated: 2024/08/08 13:27:05 by meserghi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
+
+const int Fixed::_fraction = 8;
 
 Fixed::Fixed ( void )
 {
@@ -26,14 +28,12 @@ Fixed::~Fixed ( void )
 Fixed::Fixed ( int const &nb )
 {
 	// std::cout << "Int constructor called\n";
-	// 8 is 256 : nb * 256;
 	_raw = nb << _fraction;
 }
 
 Fixed::Fixed ( float const &nb )
 {
 	// std::cout << "Float constructor called\n";
-	// this (1 << _fraction) like 2 ^ _fraction and you can't left shift for float number.
 	_raw = roundf(nb * (1 << _fraction));
 }
 
@@ -68,32 +68,32 @@ Fixed& Fixed::operator=(const Fixed &cp)
 
 bool	Fixed::operator>( const Fixed &a )
 {
-	return (this->_raw > a._raw);
+	return (this->toFloat() > a.toFloat());
 }
 
 bool	Fixed::operator>=( const Fixed &a )
 {
-	return (this->_raw >= a._raw);
+	return (this->toFloat() >= a.toFloat());
 }
 
 bool	Fixed::operator<( const Fixed &a )
 {
-	return (this->_raw < a._raw);
+	return (this->toFloat() < a.toFloat());
 }
 
 bool	Fixed::operator<=( const Fixed &a )
 {
-	return (this->_raw <= a._raw);
+	return (this->toFloat() <= a.toFloat());
 }
 
 bool	Fixed::operator==( const Fixed &a )
 {
-	return (this->_raw == a._raw);
+	return (this->toFloat() == a.toFloat());
 }
 
 bool	Fixed::operator!=( const Fixed &a )
 {
-	return (this->_raw != a._raw);
+	return (this->toFloat() != a.toFloat());
 }
 
 Fixed	Fixed::operator+( const Fixed &a )
@@ -116,57 +116,61 @@ Fixed	Fixed::operator/( const Fixed &a )
 	return Fixed(this->toFloat() / a.toFloat());
 }
 
-Fixed	&Fixed::operator++( void )
+Fixed	Fixed::operator++( void )
 {
 	// pre-increment
-	this->_raw++;
-	return (*this);
-}
-
-Fixed	&Fixed::operator++( int )
-{
-	// post-increment
 	++this->_raw;
 	return (*this);
 }
 
-Fixed	&Fixed::operator--( void )
+Fixed	Fixed::operator++( int )
 {
-	this->_raw--;
-	return (*this);
+	// post-increment
+	Fixed tmp(*this);
+
+	this->_raw++;
+	return (tmp);
 }
 
-Fixed	&Fixed::operator--( int )
+Fixed	Fixed::operator--( void )
 {
 	--this->_raw;
 	return (*this);
 }
 
+Fixed	Fixed::operator--( int )
+{
+	Fixed tmp(*this);
+
+	this->_raw--;
+	return (tmp);
+}
+
 
 Fixed	Fixed::max(Fixed const &a, Fixed const &b)
 {
-	if (a._raw > b._raw)
+	if (a.toFloat() > b.toFloat())
 		return (a);
 	return (b);
 }
 
 Fixed	Fixed::min(Fixed const &a, Fixed const &b)
 {
-	if (a._raw < b._raw)
+	if (a.toFloat() < b.toFloat())
 		return (a);
 	return (b);
 }
 
 Fixed	Fixed::min(Fixed &a, Fixed &b)
 {
-	if (a._raw < b._raw)
+	if (a.toFloat() < b.toFloat())
 		return (a);
 	return (b);
 }
 
 Fixed	Fixed::max(Fixed &a, Fixed &b)
 {
-	if (a._raw > b._raw)
+	if (a.toFloat() > b.toFloat())
 		return (a);
 	return (b);
 }

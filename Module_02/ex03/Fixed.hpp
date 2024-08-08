@@ -6,7 +6,7 @@
 /*   By: meserghi <meserghi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/18 12:08:44 by meserghi          #+#    #+#             */
-/*   Updated: 2024/05/18 12:08:47 by meserghi         ###   ########.fr       */
+/*   Updated: 2024/08/08 13:34:37 by meserghi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ class	Fixed
 {
 	private :
 		int					_raw;
-		static const int	_fraction = 8;
+		static const int	_fraction;
 	public :
 		Fixed ( void );
 		Fixed ( int const &nb );
@@ -41,12 +41,12 @@ class	Fixed
 		Fixed	operator/(const Fixed &a);
 
 	// post- :
-		Fixed	&operator++( int );
-		Fixed	&operator--( int );
+		Fixed	operator++( int );
+		Fixed	operator--( int );
 
 	// pre- :
-		Fixed	&operator++( void );
-		Fixed	&operator--( void );
+		Fixed	operator++( void );
+		Fixed	operator--( void );
 
 		int toInt ( void ) const;
 		float toFloat ( void ) const;
