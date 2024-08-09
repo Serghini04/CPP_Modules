@@ -6,7 +6,7 @@
 /*   By: meserghi <meserghi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/18 12:10:30 by meserghi          #+#    #+#             */
-/*   Updated: 2024/06/09 01:18:47 by meserghi         ###   ########.fr       */
+/*   Updated: 2024/08/09 16:12:23 by meserghi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int	Point::CalArea(Point const &a, Point const &b, Point const &c)
 	float	div;
 
 	div = ((Fixed)a._x * ((Fixed)b._y - c._y) + (Fixed)b._x* (Fixed)((Fixed)c._y - a._y) + (Fixed)c._x * (Fixed)((Fixed)a._y - b._y)).toFloat();
-	return (abs(div / 2));
+	return (std::fabs(div) / 2);
 }
 
 Point::~Point( void )

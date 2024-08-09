@@ -6,7 +6,7 @@
 /*   By: meserghi <meserghi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/18 12:08:39 by meserghi          #+#    #+#             */
-/*   Updated: 2024/07/25 14:46:53 by meserghi         ###   ########.fr       */
+/*   Updated: 2024/08/09 16:14:59 by meserghi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 int main ( void )
 {
-    if (bsp(Point(5.5, 1.2), Point(15, 20.55), Point(54.6, 14), Point(18.5, 16)))
+    if (bsp(Point(0, 0), Point(10, 30), Point(20, 0), Point(10, 15)))
         std::cout << "===>>>Inside<<<===" << std::endl;
     else
         std::cout << "===>>>Outside<<<===" << std::endl;
