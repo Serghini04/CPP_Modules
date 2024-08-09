@@ -6,7 +6,7 @@
 /*   By: meserghi <meserghi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 12:03:35 by meserghi          #+#    #+#             */
-/*   Updated: 2024/08/08 13:27:05 by meserghi         ###   ########.fr       */
+/*   Updated: 2024/08/09 11:03:15 by meserghi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,32 +66,32 @@ Fixed& Fixed::operator=(const Fixed &cp)
     return (*this);
 }
 
-bool	Fixed::operator>( const Fixed &a )
+bool	Fixed::operator>( const Fixed &a ) const
 {
 	return (this->toFloat() > a.toFloat());
 }
 
-bool	Fixed::operator>=( const Fixed &a )
+bool	Fixed::operator>=( const Fixed &a ) const
 {
 	return (this->toFloat() >= a.toFloat());
 }
 
-bool	Fixed::operator<( const Fixed &a )
+bool	Fixed::operator<( const Fixed &a ) const
 {
 	return (this->toFloat() < a.toFloat());
 }
 
-bool	Fixed::operator<=( const Fixed &a )
+bool	Fixed::operator<=( const Fixed &a ) const
 {
 	return (this->toFloat() <= a.toFloat());
 }
 
-bool	Fixed::operator==( const Fixed &a )
+bool	Fixed::operator==( const Fixed &a ) const
 {
 	return (this->toFloat() == a.toFloat());
 }
 
-bool	Fixed::operator!=( const Fixed &a )
+bool	Fixed::operator!=( const Fixed &a ) const
 {
 	return (this->toFloat() != a.toFloat());
 }

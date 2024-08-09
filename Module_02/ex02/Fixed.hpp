@@ -6,7 +6,7 @@
 /*   By: meserghi <meserghi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 12:03:14 by meserghi          #+#    #+#             */
-/*   Updated: 2024/08/08 13:24:57 by meserghi         ###   ########.fr       */
+/*   Updated: 2024/08/09 09:24:14 by meserghi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,12 +30,12 @@ class	Fixed
 		Fixed& operator=(const Fixed &cp);
 
 	// 6 comparison operators :
-		bool	operator>(const Fixed &a);
-		bool	operator>=(const Fixed &a);
-		bool	operator<(const Fixed &a);
-		bool	operator<=(const Fixed &a);
-		bool	operator==(const Fixed &a);
-		bool	operator!=(const Fixed &a);
+		bool	operator>(const Fixed &a) const;
+		bool	operator>=(const Fixed &a) const;
+		bool	operator<(const Fixed &a) const;
+		bool	operator<=(const Fixed &a) const;
+		bool	operator==(const Fixed &a) const;
+		bool	operator!=(const Fixed &a) const;
 
 	// 4 arihmetic operators :
 		Fixed	operator+(const Fixed &a);
