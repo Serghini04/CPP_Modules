@@ -6,7 +6,7 @@
 /*   By: meserghi <meserghi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 21:00:16 by meserghi          #+#    #+#             */
-/*   Updated: 2024/08/10 16:42:53 by meserghi         ###   ########.fr       */
+/*   Updated: 2024/08/10 18:34:27 by meserghi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 DiamondTrap::DiamondTrap(std::string Name) : ClapTrap(Name + "_clap_Name"), ScavTrap(Name), FragTrap(Name)
 {
 	_Name = Name;
-	_HitPoints = FragTrap::_HitPoints;
-	_EnergyPoints = ScavTrap::_EnergyPoints;
-	_AttackDamage = FragTrap::_AttackDamage;
+	FragTrap::_HitPoints = 100;
+	ScavTrap::_EnergyPoints = 50;
+	FragTrap::_AttackDamage = 20;
 	std::cout << "Create : " << _Name << " DiamondTrap.\n";
 }
 
@@ -41,6 +41,7 @@ DiamondTrap::DiamondTrap (DiamondTrap const &clone) : ClapTrap(clone._Name), Sca
 
 DiamondTrap &DiamondTrap::operator=(DiamondTrap const &clone)
 {
+	ClapTrap::operator=(clone);
 	_Name = clone._Name;
 	_HitPoints = clone._HitPoints;
 	_EnergyPoints = clone._EnergyPoints;

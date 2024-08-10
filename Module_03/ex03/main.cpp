@@ -6,7 +6,7 @@
 /*   By: meserghi <meserghi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 21:00:36 by meserghi          #+#    #+#             */
-/*   Updated: 2024/08/01 21:00:37 by meserghi         ###   ########.fr       */
+/*   Updated: 2024/08/10 18:27:31 by meserghi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,5 +15,8 @@
 int main()
 {
 	DiamondTrap	A("Ana");
+
+	A.whoAmI();
+	A.attack("B");
 	return (0);
 }
