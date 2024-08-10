@@ -6,7 +6,7 @@
 /*   By: meserghi <meserghi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 21:00:16 by meserghi          #+#    #+#             */
-/*   Updated: 2024/08/01 21:00:17 by meserghi         ###   ########.fr       */
+/*   Updated: 2024/08/10 16:42:53 by meserghi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,22 +30,22 @@ DiamondTrap::DiamondTrap() : ClapTrap("Unknown_clap_name"), ScavTrap("Unknown"),
 	std::cout << "Default Constructor : " << _Name <<" DiamondTrap.\n";
 }
 
-DiamondTrap::DiamondTrap (DiamondTrap &clone) : ClapTrap(clone._Name), ScavTrap(clone._Name), FragTrap(clone._Name)
+DiamondTrap::DiamondTrap (DiamondTrap const &clone) : ClapTrap(clone._Name), ScavTrap(clone._Name), FragTrap(clone._Name)
+{
+	_Name = clone._Name;
+	_HitPoints = clone._HitPoints;
+	_EnergyPoints = clone._EnergyPoints;
+	_AttackDamage = clone._AttackDamage;
+	std::cout << "Copy Constructor : "<< _Name << " DiamondTrap.\n";
+}
+
+DiamondTrap &DiamondTrap::operator=(DiamondTrap const &clone)
 {
 	_Name = clone._Name;
 	_HitPoints = clone._HitPoints;
 	_EnergyPoints = clone._EnergyPoints;
 	_AttackDamage = clone._AttackDamage;
 	std::cout << "Copy Assignment : "<< _Name << " DiamondTrap.\n";
-}
-
-DiamondTrap &DiamondTrap::operator=(DiamondTrap &clone)
-{
-	_Name = clone._Name;
-	_HitPoints = clone._HitPoints;
-	_EnergyPoints = clone._EnergyPoints;
-	_AttackDamage = clone._AttackDamage;
-	std::cout << "Copy : "<< _Name << " DiamondTrap.\n";
 	return (*this);
 }
 

@@ -6,7 +6,7 @@
 /*   By: meserghi <meserghi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 20:47:11 by meserghi          #+#    #+#             */
-/*   Updated: 2024/08/01 20:47:12 by meserghi         ###   ########.fr       */
+/*   Updated: 2024/08/10 14:07:22 by meserghi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ class ScavTrap : public ClapTrap
 		ScavTrap ( std::string Name );
 		void	guardGate();
 		ScavTrap (void);
-		ScavTrap (ScavTrap &clone);
-		ScavTrap &operator=(ScavTrap &clone);
+		ScavTrap (ScavTrap const &clone);
+		ScavTrap &operator=(ScavTrap const &clone);
 		void	attack(const std::string& target);
 		~ScavTrap ( void );
 };

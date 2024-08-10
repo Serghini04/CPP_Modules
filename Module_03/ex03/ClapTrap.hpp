@@ -6,7 +6,7 @@
 /*   By: meserghi <meserghi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 21:00:08 by meserghi          #+#    #+#             */
-/*   Updated: 2024/08/01 21:00:09 by meserghi         ###   ########.fr       */
+/*   Updated: 2024/08/10 14:11:44 by meserghi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@ class ClapTrap
 		void	takeDamage(unsigned int amount);
 		void	beRepaired(unsigned int amount);
 		ClapTrap (void);
-		ClapTrap (ClapTrap &clone);
-		ClapTrap &operator=(ClapTrap &clone);
+		ClapTrap (ClapTrap const &clone);
+		ClapTrap &operator=(ClapTrap const &clone);
 		~ClapTrap (void);
 
 };

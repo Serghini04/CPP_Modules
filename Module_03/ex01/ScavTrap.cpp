@@ -6,7 +6,7 @@
 /*   By: meserghi <meserghi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 20:47:00 by meserghi          #+#    #+#             */
-/*   Updated: 2024/08/01 20:47:02 by meserghi         ###   ########.fr       */
+/*   Updated: 2024/08/10 16:19:46 by meserghi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,13 +30,13 @@ void ScavTrap::attack(const std::string& target)
 		std::cout << "ScavTrap " << this->_Name << " is out of energy\n";
 		return ;
 	}
-	std::cout << "ScavTrap " << target << " attacks, causing " << _AttackDamage << " point.\n";
+	std::cout << "ScavTrap " << _Name  << " attacks " << target << ", causing " << _AttackDamage << " points of damage!\n";
 	_EnergyPoints--;
 }
 
 void	ScavTrap::guardGate()
 {
-	std::cout << "ScavTrap is now in Gate keeper mode.\n";
+	std::cout << "ScavTrap " << _Name << " is now in Gate keeper mode.\n";
 }
 
 ScavTrap::ScavTrap () : ClapTrap("Unknown")
@@ -47,21 +47,21 @@ ScavTrap::ScavTrap () : ClapTrap("Unknown")
 	std::cout << "Default Constructor : " << _Name << " ScavTrap.\n";
 }
 
-ScavTrap::ScavTrap (ScavTrap &clone) : ClapTrap(clone._Name)
+ScavTrap::ScavTrap (ScavTrap const &clone) : ClapTrap(clone._Name)
 {
 	_HitPoints = clone._HitPoints;
 	_EnergyPoints = clone._EnergyPoints;
 	_AttackDamage = clone._AttackDamage;
-	std::cout << "Copy Assignment : " << _Name << " ScavTrap.\n";
+	std::cout << "Copy Constructor : " << _Name << " ScavTrap.\n";
 }
 
-ScavTrap &ScavTrap::operator=(ScavTrap &clone)
+ScavTrap &ScavTrap::operator=(ScavTrap const &clone)
 {
 	_Name = clone._Name;
 	_HitPoints = clone._HitPoints;
 	_EnergyPoints = clone._EnergyPoints;
 	_AttackDamage = clone._AttackDamage;
-	std::cout << "Copy : " << _Name << "ScavTrap.\n";
+	std::cout << "Copy Assignment : " << _Name << "ScavTrap.\n";
 	return (*this);
 }
 

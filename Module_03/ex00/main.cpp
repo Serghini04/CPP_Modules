@@ -6,7 +6,7 @@
 /*   By: meserghi <meserghi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 20:45:42 by meserghi          #+#    #+#             */
-/*   Updated: 2024/08/01 20:45:44 by meserghi         ###   ########.fr       */
+/*   Updated: 2024/08/10 13:58:25 by meserghi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,10 @@ int main()
 	ClapTrap	B("B");
 
 	A.attack("B");
-	B.takeDamage(10);
-	B.beRepaired(10);
+	B.takeDamage(0);
 	B.attack("A");
-	A.takeDamage(10);
+	A.takeDamage(0);
+	B.beRepaired(10);
 	A.beRepaired(10);
 	return (0);
 }
