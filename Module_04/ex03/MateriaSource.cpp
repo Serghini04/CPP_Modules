@@ -10,7 +10,7 @@ void MateriaSource::learnMateria(AMateria *m)
 	if (_index < 4)
 	{
 		_save[_index] = m;
-		_index++; 
+		_index++;
 	}
 }
 
@@ -24,5 +24,9 @@ AMateria* MateriaSource::createMateria(std::string const & type)
 
 MateriaSource::~MateriaSource()
 {
-
+	while (_index >= 0)
+	{
+		delete _save[_index];
+		_index--;
+	}
 }
