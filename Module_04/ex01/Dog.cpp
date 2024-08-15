@@ -6,7 +6,7 @@
 /*   By: meserghi <meserghi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 21:02:34 by meserghi          #+#    #+#             */
-/*   Updated: 2024/08/01 21:02:35 by meserghi         ###   ########.fr       */
+/*   Updated: 2024/08/15 19:52:49 by meserghi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,19 +19,22 @@ Dog::Dog() : Animal("Dog"), _brain(new Brain())
 
 void	Dog::makeSound() const
 {
-	std::cout << type << " bark.\n";
+	std::cout << type << " Weof.\n";
 }
 
-Dog::Dog(Dog &clone) : Animal(clone.type), _brain(new Brain(*clone._brain))
+Dog::Dog(Dog const &clone) : Animal(clone.type), _brain(new Brain(*clone._brain))
 {
 
 }
 
-Dog &Dog::operator=(Dog &clone)
+Dog &Dog::operator=(Dog const &clone)
 {
-	type = clone.type;
-	delete clone._brain;
-	_brain = new Brain(*clone._brain);
+	if (this != &clone)
+	{
+		type = clone.type;
+		delete _brain;
+		_brain = new Brain(*clone._brain);
+	}
 	return (*this);
 }
 
@@ -41,7 +44,7 @@ void	Dog::SetBrainIdea(int index, std::string idea)
 		_brain->SetIdea(index, idea);
 }
 
-std::string	Dog::GetBrainIdea(int index)
+std::string	Dog::GetBrainIdea(int index) const
 {
 	if (index >= 0 && index < 100)
 		return (_brain->GetIdea(index));

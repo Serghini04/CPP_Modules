@@ -6,7 +6,7 @@
 /*   By: meserghi <meserghi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 21:01:44 by meserghi          #+#    #+#             */
-/*   Updated: 2024/08/01 21:01:45 by meserghi         ###   ########.fr       */
+/*   Updated: 2024/08/15 16:41:24 by meserghi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,12 @@ void	WrongCat::makeSound() const
 	std::cout << type << " Meow.\n";
 }
 
-WrongCat::WrongCat(WrongCat &clone) : WrongAnimal(clone.type)
+WrongCat::WrongCat(WrongCat const &clone) : WrongAnimal(clone.type)
 {
 
 }
 
-WrongCat &WrongCat::operator=(WrongCat &clone)
+WrongCat &WrongCat::operator=(WrongCat const &clone)
 {
 	type = clone.type;
 	return (*this);

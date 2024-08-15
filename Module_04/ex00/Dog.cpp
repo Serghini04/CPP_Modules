@@ -6,7 +6,7 @@
 /*   By: meserghi <meserghi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 21:01:14 by meserghi          #+#    #+#             */
-/*   Updated: 2024/08/01 21:01:15 by meserghi         ###   ########.fr       */
+/*   Updated: 2024/08/15 16:36:17 by meserghi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,15 @@ Dog::Dog() : Animal("Dog")
 
 void	Dog::makeSound() const
 {
-	std::cout << type << " bark.\n";
+	std::cout << type << " Weof.\n";
 }
 
-Dog::Dog(Dog &clone) : Animal(clone.type)
+Dog::Dog(Dog const &clone) : Animal(clone.type)
 {
 
 }
 
-Dog &Dog::operator=(Dog &clone)
+Dog &Dog::operator=(Dog const &clone)
 {
 	type = clone.type;
 	return (*this);

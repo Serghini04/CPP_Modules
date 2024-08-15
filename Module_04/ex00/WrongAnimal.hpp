@@ -6,7 +6,7 @@
 /*   By: meserghi <meserghi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 21:01:41 by meserghi          #+#    #+#             */
-/*   Updated: 2024/08/01 21:01:42 by meserghi         ###   ########.fr       */
+/*   Updated: 2024/08/15 16:40:17 by meserghi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,10 @@ class WrongAnimal
 	public:
 		WrongAnimal();
 		std::string getType() const;
-		WrongAnimal(WrongAnimal &clone);
+		WrongAnimal(WrongAnimal const &clone);
 		void	makeSound() const;
 		WrongAnimal(std::string Type);
-		WrongAnimal &operator=(WrongAnimal &clone);
+		WrongAnimal &operator=(WrongAnimal const &clone);
 		~WrongAnimal();
 };
 

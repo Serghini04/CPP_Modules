@@ -6,7 +6,7 @@
 /*   By: meserghi <meserghi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 20:59:07 by meserghi          #+#    #+#             */
-/*   Updated: 2024/08/01 20:59:08 by meserghi         ###   ########.fr       */
+/*   Updated: 2024/08/15 16:32:45 by meserghi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,12 @@ void	Cat::makeSound() const
 	std::cout << type << " Meow.\n";
 }
 
-Cat::Cat(Cat &clone) : Animal(clone.type)
+Cat::Cat(Cat const &clone) : Animal(clone.type)
 {
 
 }
 
-Cat &Cat::operator=(Cat &clone)
+Cat &Cat::operator=(Cat const &clone)
 {
 	type = clone.type;
 	return (*this);

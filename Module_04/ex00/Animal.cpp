@@ -6,7 +6,7 @@
 /*   By: meserghi <meserghi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 20:58:52 by meserghi          #+#    #+#             */
-/*   Updated: 2024/08/01 21:01:01 by meserghi         ###   ########.fr       */
+/*   Updated: 2024/08/15 19:46:37 by meserghi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 Animal::Animal(std::string Type)
 {
 	type = Type;
-	std::cout << "Constructor Animal.\n";
+	std::cout <<  type <<" : Constructor Animal.\n";
 }
 
 Animal::Animal()

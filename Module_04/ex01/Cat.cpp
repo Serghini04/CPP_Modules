@@ -6,7 +6,7 @@
 /*   By: meserghi <meserghi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 21:02:22 by meserghi          #+#    #+#             */
-/*   Updated: 2024/08/01 21:02:23 by meserghi         ###   ########.fr       */
+/*   Updated: 2024/08/15 19:53:28 by meserghi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,16 +22,19 @@ void	Cat::makeSound() const
 	std::cout << type << " Meow.\n";
 }
 
-Cat::Cat(Cat &clone) : Animal(clone.type), _brain(new Brain(*clone._brain))
+Cat::Cat(Cat const &clone) : Animal(clone.type), _brain(new Brain(*clone._brain))
 {
 
 }
 
-Cat &Cat::operator=(Cat &clone)
+Cat &Cat::operator=(Cat const &clone)
 {
-	type = clone.type;
-	delete clone._brain;
-	_brain = new Brain(*clone._brain);
+	if (&clone != this)
+	{
+		type = clone.type;
+		delete _brain;
+		_brain = new Brain(*clone._brain);
+	}
 	return (*this);
 }
 
@@ -41,7 +44,7 @@ void	Cat::SetBrainIdea(int index, std::string idea)
 		_brain->SetIdea(index, idea);
 }
 
-std::string	Cat::GetBrainIdea(int index)
+std::string	Cat::GetBrainIdea(int index) const
 {
 	if (index >= 0 && index < 100)
 		return (_brain->GetIdea(index));

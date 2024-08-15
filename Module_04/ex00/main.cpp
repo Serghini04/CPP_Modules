@@ -6,7 +6,7 @@
 /*   By: meserghi <meserghi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 21:01:22 by meserghi          #+#    #+#             */
-/*   Updated: 2024/08/01 21:01:23 by meserghi         ###   ########.fr       */
+/*   Updated: 2024/08/15 16:53:53 by meserghi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@ int main()
 	const Animal* j = new Dog();
 	const Animal* i = new Cat();
 
-	std::cout << meta->getType() << " " << std::endl;
-	std::cout << j->getType() << " " << std::endl;
-	std::cout << i->getType() << " " << std::endl;
+	std::cout << meta->getType() << std::endl;
+	std::cout << j->getType() << std::endl;
+	std::cout << i->getType() << std::endl;
 	i->makeSound(); //will output the cat sound!
 	j->makeSound();
 	meta->makeSound();
@@ -34,9 +34,10 @@ int main()
 	delete j;
 	delete i;
 	std::cout << "==============================\n";
-	std::cout << "=====Non-Virtual Function=====\n";
+	std::cout << "=====Non Virtual Function=====\n";
 	WrongAnimal	*A = new WrongCat();
 
+	std::cout << A->getType() << std::endl;
 	A->makeSound();
 	delete A;
 	std::cout << "==============================\n";

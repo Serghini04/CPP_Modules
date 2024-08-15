@@ -6,7 +6,7 @@
 /*   By: meserghi <meserghi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 21:01:35 by meserghi          #+#    #+#             */
-/*   Updated: 2024/08/01 21:01:36 by meserghi         ###   ########.fr       */
+/*   Updated: 2024/08/15 16:40:44 by meserghi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ WrongAnimal::WrongAnimal()
 }
 
 
-WrongAnimal::WrongAnimal(WrongAnimal &clone)
+WrongAnimal::WrongAnimal(WrongAnimal const &clone)
 {
 	type = clone.type;
 }
@@ -40,7 +40,7 @@ std::string	WrongAnimal::getType() const
 	return (type);
 }
 
-WrongAnimal &WrongAnimal::operator=(WrongAnimal &clone)
+WrongAnimal &WrongAnimal::operator=(WrongAnimal const &clone)
 {
 	type = clone.type;
 	return (*this);
