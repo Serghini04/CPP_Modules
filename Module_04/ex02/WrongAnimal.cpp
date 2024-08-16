@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: meserghi <meserghi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/01 21:04:26 by meserghi          #+#    #+#             */
-/*   Updated: 2024/08/01 21:04:27 by meserghi         ###   ########.fr       */
+/*   Created: 2024/08/01 21:03:01 by meserghi          #+#    #+#             */
+/*   Updated: 2024/08/15 17:19:23 by meserghi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ WrongAnimal::WrongAnimal()
 }
 
 
-WrongAnimal::WrongAnimal(WrongAnimal &clone)
+WrongAnimal::WrongAnimal(WrongAnimal const &clone)
 {
 	type = clone.type;
 }
@@ -40,7 +40,7 @@ std::string	WrongAnimal::getType() const
 	return (type);
 }
 
-WrongAnimal &WrongAnimal::operator=(WrongAnimal &clone)
+WrongAnimal &WrongAnimal::operator=(WrongAnimal const &clone)
 {
 	type = clone.type;
 	return (*this);

@@ -7,10 +7,7 @@ class base
 		{
 			std::cout << "Base\n";
 		}
-		virtual void p()
-		{
-			std::cout << "=== hi me : 1===\n";
-		}
+		virtual void p() = 0;
 		virtual ~base()
 		{
 			std::cout << "I'm destructor Base.\n";
