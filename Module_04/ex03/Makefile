@@ -3,7 +3,7 @@ FILE = main.cpp AMateria.cpp Character.cpp Cure.cpp Ice.cpp ICharacter.cpp\
 
 OBJ = ${FILE:.cpp=.o}
 
-FLAGS = -std=c++98 -Wall -Wextra -Werror
+FLAGS = -std=c++98 -Wall -Wextra -Werror #-fsanitize=address -g
 
 NAME = Interface
 
@@ -12,7 +12,7 @@ all : ${NAME}
 ${NAME} : ${OBJ}
 	c++ ${FLAGS} ${OBJ} -o ${NAME}
 
-%.o : %.cpp
+%.o : %.cpp AMateria.hpp Character.hpp Cure.hpp Ice.hpp ICharacter.hpp IMateriaSource.hpp MateriaSource.hpp
 	c++ ${FLAGS} -c $<
 
 clean :

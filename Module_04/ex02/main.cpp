@@ -6,7 +6,7 @@
 /*   By: meserghi <meserghi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 21:02:47 by meserghi          #+#    #+#             */
-/*   Updated: 2024/08/15 20:20:28 by meserghi         ###   ########.fr       */
+/*   Updated: 2024/08/17 15:14:32 by meserghi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,13 @@ int main() {
 	int size = 4;
 	const Animal *animals[size];
 
-	for (int i = 0; i < size / 2; ++i)
-	    animals[i] = new Dog();
-	for (int i = size / 2; i < size; ++i)
-	    animals[i] = new Cat();
+	for (int i = 0; i < size; ++i)
+	{
+		if (i < size / 2)
+	    	animals[i] = new Dog();
+		else
+	    	animals[i] = new Cat();
+	}
 	for (int i = 0; i < size; ++i)
 	    animals[i]->makeSound();
 	for (int i = 0; i < size; ++i)

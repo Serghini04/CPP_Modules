@@ -6,7 +6,7 @@
 /*   By: meserghi <meserghi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 21:02:05 by meserghi          #+#    #+#             */
-/*   Updated: 2024/08/15 19:57:21 by meserghi         ###   ########.fr       */
+/*   Updated: 2024/08/17 18:29:35 by meserghi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,15 +31,18 @@ void	Brain::SetIdea(int index, std::string idea)
 
 std::string	Brain::GetIdea(int index) const
 {
-	if (index >= 0 &&  index < 100)
+	if (index >= 0 && index < 100)
 		return (ideas[index]);
 	return ("");
 }
 
 Brain &Brain::operator=(const Brain &clone)
 {
-	for (int i = 0; i < 100; i++)
-		ideas[i] = clone.ideas[i];
+	if (this != &clone)
+	{
+		for (int i = 0; i < 100; i++)
+			ideas[i] = clone.ideas[i];
+	}
 	return (*this);
 }
 

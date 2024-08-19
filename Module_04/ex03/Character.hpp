@@ -11,9 +11,12 @@ class Character : public ICharacter
 		int			_index;
 		int			_index_tmp;
 		AMateria	*_inventory[4];
-		AMateria	**_tmp;
+		AMateria	*_tmp[2147483647];
 	public:
 		~Character();
+		Character();
+		Character(const Character &clone);
+		Character &operator=(const Character &clone);
 		Character(std::string	name);
 		std::string const & getName() const;
 		void equip(AMateria* m);

@@ -15,6 +15,7 @@ Cure &Cure::operator=(const Cure &clone)
 	_type = clone._type;
 	return (*this);
 }
+
 AMateria *Cure::clone() const
 {
 	return (new Cure());
