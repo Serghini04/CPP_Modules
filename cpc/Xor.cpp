@@ -24,7 +24,7 @@ int main()
 		else val.push_back(input);
 	}
 	int i1, i2;
-	// cout << "================\n";
+	// cout << "==================\n";
 	// for (int i =0;i < val.size(); i++)
 	// 	cout << val[i] << " ";
 	// cout << "\n================\n";

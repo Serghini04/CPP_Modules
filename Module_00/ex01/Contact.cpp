@@ -6,7 +6,7 @@
 /*   By: meserghi <meserghi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 19:49:29 by meserghi          #+#    #+#             */
-/*   Updated: 2024/07/19 16:51:46 by meserghi         ###   ########.fr       */
+/*   Updated: 2024/09/26 10:54:24 by meserghi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	Contact::Print()
 	if (_LastName.length() <= 10)
 		std::cout << std::setw(10) << _LastName << "|";
 	else
-		std::cout << std::setw(10) << _LastName.substr(0, 9) + "." << "|";
+		std::cout << _LastName.substr(0, 9) + "." << "|";
 	if (_NickName.length() <= 10)
 		std::cout << std::setw(10) << _NickName << "|\n";
 	else

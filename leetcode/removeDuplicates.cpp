@@ -28,11 +28,11 @@ int main()
 
 	std::vector<int> nums;
 	nums.push_back(1);
-	nums.push_back(1);
-	nums.push_back(1);
-	nums.push_back(1);
-	nums.push_back(1);
-	nums.push_back(1);
+	nums.push_back(2);
+	nums.push_back(4);
+	nums.push_back(9);
+	nums.push_back(0);
+	nums.push_back(10);
 	int s = a.removeDuplicates(nums);
 	for (int i = 0; i < s; i++)
 		std::cout << nums[i] << std::endl;

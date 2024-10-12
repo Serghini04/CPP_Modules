@@ -6,7 +6,7 @@
 /*   By: meserghi <meserghi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 21:00:16 by meserghi          #+#    #+#             */
-/*   Updated: 2024/08/10 18:34:27 by meserghi         ###   ########.fr       */
+/*   Updated: 2024/10/02 20:36:36 by meserghi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@ DiamondTrap::DiamondTrap (DiamondTrap const &clone) : ClapTrap(clone._Name), Sca
 DiamondTrap &DiamondTrap::operator=(DiamondTrap const &clone)
 {
 	ClapTrap::operator=(clone);
+	ClapTrap::_Name = clone._Name;
+
 	_Name = clone._Name;
 	_HitPoints = clone._HitPoints;
 	_EnergyPoints = clone._EnergyPoints;
