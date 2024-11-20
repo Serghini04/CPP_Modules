@@ -6,7 +6,7 @@
 /*   By: meserghi <meserghi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 20:47:29 by meserghi          #+#    #+#             */
-/*   Updated: 2024/08/10 15:59:51 by meserghi         ###   ########.fr       */
+/*   Updated: 2024/11/20 15:16:42 by meserghi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ class ClapTrap
 		ClapTrap (ClapTrap const &clone);
 		ClapTrap &operator=(ClapTrap const &clone);
 		~ClapTrap (void);
-
 };
 
 #endif
