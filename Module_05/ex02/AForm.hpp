@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.hpp                                           :+:      :+:    :+:   */
+/*   AForm.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: meserghi <meserghi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 15:49:18 by meserghi          #+#    #+#             */
-/*   Updated: 2024/11/21 12:52:26 by meserghi         ###   ########.fr       */
+/*   Updated: 2024/11/21 20:06:14 by meserghi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # include <exception>
 # include "Bureaucrat.hpp"
 
-class Form
+class AForm
 {
 	private :
 		const std::string	_Name;
@@ -24,11 +24,11 @@ class Form
 
 	public :
 
-		Form();
-		Form(const Form & clone);
-		Form(std::string Name, int GradeToExecute, int GradeToSign);
+		AForm();
+		AForm(const AForm & clone);
+		AForm(std::string Name, int GradeToExecute, int GradeToSign);
 
-		Form	&operator=(const Form & clone);
+		AForm	&operator=(const AForm & clone);
 
 		std::string	getName() const;
 		bool	getIsSigned() const;
@@ -47,8 +47,11 @@ class Form
 				const char *what() const throw();
 		};
 
+		virtual void	execute(Bureaucrat const & executor) const = 0;
+
 		void	BeSigned(const Bureaucrat & B);
-		~Form();
+
+		virtual ~AForm();
 };
 
-std::ostream	&operator<<( std::ostream &out, const Form &clone);
+std::ostream	&operator<<( std::ostream &out, const AForm &clone);

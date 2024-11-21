@@ -6,28 +6,24 @@
 /*   By: meserghi <meserghi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 15:53:58 by meserghi          #+#    #+#             */
-/*   Updated: 2024/11/21 12:44:20 by meserghi         ###   ########.fr       */
+/*   Updated: 2024/11/21 23:23:45 by meserghi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "Form.hpp"
+# include "ShrubberyCreationForm.hpp"
 
 int main()
 {
 	try
 	{
-		Bureaucrat	King("King", 1);
-		Form	F("King's Document", 1, 1);
-
-		std::cout << ">> " <<  King << "\n";
-		std::cout << ">> " <<  F << "\n";
-
-		King.signForm(F);
-		std::cout << ">> " <<  F << "\n";
+		Bureaucrat King("King", 1);
+		ShrubberyCreationForm Test("Reeee");
+		King.signForm(Test);
+		King.executeForm(Test);
 	}
-	catch(std::exception & e)
+	catch(const std::exception& e)
 	{
-		std::cout << "Exception : " << e.what() << "\n";
+		std::cerr << e.what() << '\n';
 	}
-	return 0;
+
 }

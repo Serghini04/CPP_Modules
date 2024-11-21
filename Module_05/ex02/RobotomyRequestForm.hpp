@@ -1,33 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   RobotomyRequestForm.hpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: meserghi <meserghi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/18 15:53:58 by meserghi          #+#    #+#             */
-/*   Updated: 2024/11/21 12:44:20 by meserghi         ###   ########.fr       */
+/*   Created: 2024/11/21 12:56:52 by meserghi          #+#    #+#             */
+/*   Updated: 2024/11/21 22:47:06 by meserghi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "Form.hpp"
+# include "AForm.hpp"
 
-int main()
+class	RobotomyRequestForm : public AForm
 {
-	try
-	{
-		Bureaucrat	King("King", 1);
-		Form	F("King's Document", 1, 1);
+	private :
+		std::string	_target;
+		bool		_Start;
 
-		std::cout << ">> " <<  King << "\n";
-		std::cout << ">> " <<  F << "\n";
-
-		King.signForm(F);
-		std::cout << ">> " <<  F << "\n";
-	}
-	catch(std::exception & e)
-	{
-		std::cout << "Exception : " << e.what() << "\n";
-	}
-	return 0;
-}
+	public :
+		RobotomyRequestForm(std::string target);
+		void	execute(Bureaucrat const & executor) const;
+};

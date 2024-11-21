@@ -1,33 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   PresidentialPardonForm.hpp                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: meserghi <meserghi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/18 15:53:58 by meserghi          #+#    #+#             */
-/*   Updated: 2024/11/21 12:44:20 by meserghi         ###   ########.fr       */
+/*   Created: 2024/11/21 12:57:15 by meserghi          #+#    #+#             */
+/*   Updated: 2024/11/21 23:06:10 by meserghi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "Form.hpp"
+#include "AForm.hpp"
 
-int main()
+class PresidentialPardonForm : public AForm
 {
-	try
-	{
-		Bureaucrat	King("King", 1);
-		Form	F("King's Document", 1, 1);
-
-		std::cout << ">> " <<  King << "\n";
-		std::cout << ">> " <<  F << "\n";
-
-		King.signForm(F);
-		std::cout << ">> " <<  F << "\n";
-	}
-	catch(std::exception & e)
-	{
-		std::cout << "Exception : " << e.what() << "\n";
-	}
-	return 0;
-}
+	private :
+		std::string _target;
+	public :
+		PresidentialPardonForm(std::string target);
+		void	execute(Bureaucrat const & executor) const;
+};

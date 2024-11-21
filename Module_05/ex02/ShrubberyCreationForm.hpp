@@ -1,33 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   ShrubberyCreationForm.hpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: meserghi <meserghi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/18 15:53:58 by meserghi          #+#    #+#             */
-/*   Updated: 2024/11/21 12:44:20 by meserghi         ###   ########.fr       */
+/*   Created: 2024/11/21 12:56:38 by meserghi          #+#    #+#             */
+/*   Updated: 2024/11/21 22:46:50 by meserghi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "Form.hpp"
+# include "AForm.hpp"
 
-int main()
+class	ShrubberyCreationForm : public AForm
 {
-	try
-	{
-		Bureaucrat	King("King", 1);
-		Form	F("King's Document", 1, 1);
+	private :
+		std::string	_target;
 
-		std::cout << ">> " <<  King << "\n";
-		std::cout << ">> " <<  F << "\n";
-
-		King.signForm(F);
-		std::cout << ">> " <<  F << "\n";
-	}
-	catch(std::exception & e)
-	{
-		std::cout << "Exception : " << e.what() << "\n";
-	}
-	return 0;
-}
+	public :
+		ShrubberyCreationForm(std::string target);
+		void	execute(Bureaucrat const & executor) const;
+};

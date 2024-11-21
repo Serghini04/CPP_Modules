@@ -1,43 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.hpp                                           :+:      :+:    :+:   */
+/*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: meserghi <meserghi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/20 15:49:18 by meserghi          #+#    #+#             */
-/*   Updated: 2024/11/21 12:52:26 by meserghi         ###   ########.fr       */
+/*   Created: 2024/11/18 15:53:56 by meserghi          #+#    #+#             */
+/*   Updated: 2024/11/21 22:44:09 by meserghi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include <iostream>
 # include <exception>
-# include "Bureaucrat.hpp"
 
-class Form
+class AForm;
+
+class Bureaucrat
 {
 	private :
+		int					_Grade;
 		const std::string	_Name;
-		bool				_IsSigned;
-		const int			_GradeToExecute;
-		const int			_GradeToSign;
 
 	public :
+		Bureaucrat();
+		Bureaucrat( const Bureaucrat & clone);
+		Bureaucrat(std::string Name, int Grade);
 
-		Form();
-		Form(const Form & clone);
-		Form(std::string Name, int GradeToExecute, int GradeToSign);
+		Bureaucrat &operator=( const Bureaucrat & clone);
 
-		Form	&operator=(const Form & clone);
-
+		int			getGrade() const;
 		std::string	getName() const;
-		bool	getIsSigned() const;
-		int		getGradeToSign() const;
-		int		getGradeToExecute() const;
+
+		void	increment();
+		void	decrement();
+
 
 		class GradeTooHighException : public std::exception
 		{
-			public :
+    		public:
 				const char *what() const throw();
 		};
 
@@ -46,9 +46,19 @@ class Form
 			public :
 				const char *what() const throw();
 		};
+		class IsNotSignedException : public std::exception
+		{
+			public :
+				const char *what() const throw();
+		};
 
-		void	BeSigned(const Bureaucrat & B);
-		~Form();
+		void	signForm(AForm & B);
+		void	executeForm(AForm const & form);
+
+		~Bureaucrat();
 };
 
-std::ostream	&operator<<( std::ostream &out, const Form &clone);
+
+std::ostream	&operator<<( std::ostream &out, const Bureaucrat &clone);
+
+// stack unwinding
