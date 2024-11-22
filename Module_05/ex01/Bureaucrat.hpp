@@ -6,10 +6,11 @@
 /*   By: meserghi <meserghi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 15:53:56 by meserghi          #+#    #+#             */
-/*   Updated: 2024/11/20 23:18:40 by meserghi         ###   ########.fr       */
+/*   Updated: 2024/11/22 18:59:06 by meserghi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+# pragma once
 # include <iostream>
 # include <exception>
 

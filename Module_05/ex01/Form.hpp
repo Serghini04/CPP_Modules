@@ -6,10 +6,11 @@
 /*   By: meserghi <meserghi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 15:49:18 by meserghi          #+#    #+#             */
-/*   Updated: 2024/11/21 12:52:26 by meserghi         ###   ########.fr       */
+/*   Updated: 2024/11/22 18:59:10 by meserghi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+# pragma once
 # include <iostream>
 # include <exception>
 # include "Bureaucrat.hpp"

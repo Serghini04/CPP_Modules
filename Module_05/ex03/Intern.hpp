@@ -1,30 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ShrubberyCreationForm.hpp                          :+:      :+:    :+:   */
+/*   Intern.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: meserghi <meserghi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/21 12:56:38 by meserghi          #+#    #+#             */
-/*   Updated: 2024/11/22 18:59:35 by meserghi         ###   ########.fr       */
+/*   Created: 2024/11/22 12:49:52 by meserghi          #+#    #+#             */
+/*   Updated: 2024/11/22 20:18:19 by meserghi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # pragma once
 # include "AForm.hpp"
+# include "ShrubberyCreationForm.hpp"
+# include "RobotomyRequestForm.hpp"
+# include "PresidentialPardonForm.hpp"
 
-class	ShrubberyCreationForm : public AForm
+class	Intern
 {
-	private :
-		std::string	_target;
-
 	public :
-		ShrubberyCreationForm();
-		ShrubberyCreationForm(const ShrubberyCreationForm &clone);
-		ShrubberyCreationForm &operator=(const ShrubberyCreationForm &clone);
+		Intern();
+		Intern(const Intern &clone);
+		Intern &operator=( const Intern & clone);
+		AForm	*makeForm(std::string nameForm, std::string target);
+		class	FormNotFoundException : public std::exception
+		{
+			public :
+				const char *what() const throw();
+		};
 
-		ShrubberyCreationForm(std::string target);
-		void	execute(Bureaucrat const & executor) const;
-
-		~ShrubberyCreationForm();
+		~Intern();
 };

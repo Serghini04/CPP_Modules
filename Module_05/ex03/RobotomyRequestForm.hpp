@@ -1,30 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ShrubberyCreationForm.hpp                          :+:      :+:    :+:   */
+/*   RobotomyRequestForm.hpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: meserghi <meserghi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/21 12:56:38 by meserghi          #+#    #+#             */
-/*   Updated: 2024/11/22 18:59:35 by meserghi         ###   ########.fr       */
+/*   Created: 2024/11/21 12:56:52 by meserghi          #+#    #+#             */
+/*   Updated: 2024/11/22 18:58:30 by meserghi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # pragma once
 # include "AForm.hpp"
 
-class	ShrubberyCreationForm : public AForm
+class	RobotomyRequestForm : public AForm
 {
 	private :
 		std::string	_target;
 
 	public :
-		ShrubberyCreationForm();
-		ShrubberyCreationForm(const ShrubberyCreationForm &clone);
-		ShrubberyCreationForm &operator=(const ShrubberyCreationForm &clone);
+		RobotomyRequestForm();
+		RobotomyRequestForm(const RobotomyRequestForm &clone);
+		RobotomyRequestForm(std::string target);
 
-		ShrubberyCreationForm(std::string target);
 		void	execute(Bureaucrat const & executor) const;
+		RobotomyRequestForm &operator=(const RobotomyRequestForm &clone);
 
-		~ShrubberyCreationForm();
+		~RobotomyRequestForm();
 };

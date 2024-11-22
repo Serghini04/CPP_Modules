@@ -1,30 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ShrubberyCreationForm.hpp                          :+:      :+:    :+:   */
+/*   PresidentialPardonForm.hpp                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: meserghi <meserghi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/21 12:56:38 by meserghi          #+#    #+#             */
-/*   Updated: 2024/11/22 18:59:35 by meserghi         ###   ########.fr       */
+/*   Created: 2024/11/21 12:57:15 by meserghi          #+#    #+#             */
+/*   Updated: 2024/11/22 18:58:22 by meserghi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # pragma once
-# include "AForm.hpp"
+#include "AForm.hpp"
 
-class	ShrubberyCreationForm : public AForm
+class PresidentialPardonForm : public AForm
 {
 	private :
-		std::string	_target;
-
+		std::string _target;
 	public :
-		ShrubberyCreationForm();
-		ShrubberyCreationForm(const ShrubberyCreationForm &clone);
-		ShrubberyCreationForm &operator=(const ShrubberyCreationForm &clone);
+		PresidentialPardonForm();
+		PresidentialPardonForm(const PresidentialPardonForm &clone);
+		PresidentialPardonForm &operator=(const PresidentialPardonForm &clone);
 
-		ShrubberyCreationForm(std::string target);
+		PresidentialPardonForm(std::string target);
 		void	execute(Bureaucrat const & executor) const;
 
-		~ShrubberyCreationForm();
+		~PresidentialPardonForm();
 };
