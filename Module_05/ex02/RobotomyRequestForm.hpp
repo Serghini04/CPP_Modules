@@ -6,7 +6,7 @@
 /*   By: meserghi <meserghi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 12:56:52 by meserghi          #+#    #+#             */
-/*   Updated: 2024/11/21 22:47:06 by meserghi         ###   ########.fr       */
+/*   Updated: 2024/11/22 12:38:29 by meserghi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,14 @@ class	RobotomyRequestForm : public AForm
 {
 	private :
 		std::string	_target;
-		bool		_Start;
 
 	public :
+		RobotomyRequestForm();
+		RobotomyRequestForm(const RobotomyRequestForm &clone);
 		RobotomyRequestForm(std::string target);
+
 		void	execute(Bureaucrat const & executor) const;
+		RobotomyRequestForm &operator=(const RobotomyRequestForm &clone);
+
+		~RobotomyRequestForm();
 };

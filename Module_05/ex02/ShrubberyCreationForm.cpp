@@ -6,16 +6,36 @@
 /*   By: meserghi <meserghi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 12:56:24 by meserghi          #+#    #+#             */
-/*   Updated: 2024/11/21 21:52:48 by meserghi         ###   ########.fr       */
+/*   Updated: 2024/11/22 12:44:56 by meserghi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ShrubberyCreationForm.hpp"
+# include "ShrubberyCreationForm.hpp"
 # include <fstream>
 
 ShrubberyCreationForm::ShrubberyCreationForm(std::string target) : AForm("ShrubberyCreationForm", 145, 137)
 {
 	_target = target;
+}
+
+ShrubberyCreationForm::ShrubberyCreationForm() : AForm("ShrubberyCreationForm", 145, 137)
+{
+	_target = "Unknown target";
+}
+
+ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &clone) : AForm("ShrubberyCreationForm", 145, 137)
+{
+	_target = clone._target;
+}
+
+ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationForm &clone)
+{
+	if (this != &clone)
+	{
+		_target = clone._target;
+		AForm::operator=(clone);
+	}
+	return *this;
 }
 
 void	ShrubberyCreationForm::execute(Bureaucrat const & executor) const
@@ -24,7 +44,7 @@ void	ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 
   if (!getIsSigned())
   	throw Bureaucrat::IsNotSignedException();
-  if (executor.getGrade() > getGradeToExecute())
+  else if (executor.getGrade() > getGradeToExecute())
   	throw Bureaucrat::GradeTooLowException();
   fd.open(this->_target + "_shrubbery", std::ios::out);
   if (!fd.is_open())
@@ -63,4 +83,9 @@ void	ShrubberyCreationForm::execute(Bureaucrat const & executor) const
   fd << "                          ;%@@@@%%:;;;.                      \n";
   fd << "                      ...;%@@@@@%%:;;;;,..                   \n";
   fd.close();
+}
+
+ShrubberyCreationForm::~ShrubberyCreationForm()
+{
+
 }

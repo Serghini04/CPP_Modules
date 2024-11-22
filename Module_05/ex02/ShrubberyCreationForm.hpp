@@ -6,7 +6,7 @@
 /*   By: meserghi <meserghi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 12:56:38 by meserghi          #+#    #+#             */
-/*   Updated: 2024/11/21 22:46:50 by meserghi         ###   ########.fr       */
+/*   Updated: 2024/11/22 12:46:08 by meserghi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,12 @@ class	ShrubberyCreationForm : public AForm
 		std::string	_target;
 
 	public :
+		ShrubberyCreationForm();
+		ShrubberyCreationForm(const ShrubberyCreationForm &clone);
+		ShrubberyCreationForm &operator=(const ShrubberyCreationForm &clone);
+
 		ShrubberyCreationForm(std::string target);
 		void	execute(Bureaucrat const & executor) const;
+
+		~ShrubberyCreationForm();
 };

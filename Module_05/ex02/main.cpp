@@ -6,18 +6,18 @@
 /*   By: meserghi <meserghi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 15:53:58 by meserghi          #+#    #+#             */
-/*   Updated: 2024/11/21 23:23:45 by meserghi         ###   ########.fr       */
+/*   Updated: 2024/11/22 12:34:20 by meserghi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "ShrubberyCreationForm.hpp"
+# include "RobotomyRequestForm.hpp"
 
 int main()
 {
 	try
 	{
 		Bureaucrat King("King", 1);
-		ShrubberyCreationForm Test("Reeee");
+		RobotomyRequestForm Test("Reeee");
 		King.signForm(Test);
 		King.executeForm(Test);
 	}

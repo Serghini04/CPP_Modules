@@ -6,7 +6,7 @@
 /*   By: meserghi <meserghi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 12:57:02 by meserghi          #+#    #+#             */
-/*   Updated: 2024/11/21 22:50:14 by meserghi         ###   ########.fr       */
+/*   Updated: 2024/11/22 12:42:43 by meserghi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,35 @@
 RobotomyRequestForm::RobotomyRequestForm(std::string target) : AForm("RobotomyRequestForm", 45, 72)
 {
 	_target = target;
-	_Start = true;
+}
+
+RobotomyRequestForm::RobotomyRequestForm() : AForm("RobotomyRequestForm", 45, 72)
+{
+	_target = "Unknown target";
+}
+
+RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &clone) : AForm("RobotomyRequestForm", 45, 72)
+{
+	_target = clone._target;
+}
+
+RobotomyRequestForm &RobotomyRequestForm::operator=(const RobotomyRequestForm &clone)
+{
+	if (this != &clone)
+	{
+		_target = clone._target;
+		AForm::operator=(clone);
+	}
+	return *this;
 }
 
 void	RobotomyRequestForm::execute(Bureaucrat const & executor) const
 {
+	static bool	_Start = true;
+
 	if (!getIsSigned())
 		throw Bureaucrat::IsNotSignedException();
-	if (executor.getGrade() > getGradeToExecute())
+	else if (executor.getGrade() > getGradeToExecute())
 		throw Bureaucrat::GradeTooLowException();
 	if (_Start)
 	{
@@ -35,4 +56,9 @@ void	RobotomyRequestForm::execute(Bureaucrat const & executor) const
 		std::cout << "Robotomy failed\n";
 		_Start = true;
 	}
+}
+
+RobotomyRequestForm::~RobotomyRequestForm()
+{
+
 }

@@ -6,11 +6,12 @@
 #    By: meserghi <meserghi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/18 15:54:01 by meserghi          #+#    #+#              #
-#    Updated: 2024/11/21 15:15:06 by meserghi         ###   ########.fr        #
+#    Updated: 2024/11/22 12:31:14 by meserghi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-FILE = Bureaucrat.cpp main.cpp AForm.cpp ShrubberyCreationForm.cpp
+FILE = Bureaucrat.cpp main.cpp AForm.cpp ShrubberyCreationForm.cpp \
+		RobotomyRequestForm.cpp PresidentialPardonForm.cpp
 
 OBJ = ${FILE:.cpp=.o}
 
@@ -23,7 +24,7 @@ all : ${NAME}
 ${NAME} : ${OBJ}
 	c++ ${FLAGS} ${OBJ} -o ${NAME}
 
-%.o : %.cpp Bureaucrat.hpp AForm.hpp ShrubberyCreationForm.hpp
+%.o : %.cpp Bureaucrat.hpp AForm.hpp ShrubberyCreationForm.hpp RobotomyRequestForm.hpp PresidentialPardonForm.hpp
 	c++ ${FLAGS} -c $<
 
 clean :

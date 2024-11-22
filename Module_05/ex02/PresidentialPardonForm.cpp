@@ -6,7 +6,7 @@
 /*   By: meserghi <meserghi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 12:57:26 by meserghi          #+#    #+#             */
-/*   Updated: 2024/11/21 23:07:31 by meserghi         ###   ########.fr       */
+/*   Updated: 2024/11/22 12:39:53 by meserghi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,37 @@ PresidentialPardonForm::PresidentialPardonForm(std::string target) : AForm("Pres
 	_target = target;
 }
 
+PresidentialPardonForm::PresidentialPardonForm() : AForm("PresidentialPardonForm", 5, 25)
+{
+	_target = "Unknown target";
+}
+
+PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &clone) : AForm("PresidentialPardonForm", 5, 25)
+{
+	_target = clone._target;
+}
+
+PresidentialPardonForm &PresidentialPardonForm::operator=(const PresidentialPardonForm &clone)
+{
+	if (this != &clone)
+	{
+		_target = clone._target;
+		AForm::operator=(clone);
+	}
+	return *this;
+}
+
+
 void	PresidentialPardonForm::execute(Bureaucrat const & executor) const
 {
 	if (!getIsSigned())
 		throw Bureaucrat::IsNotSignedException();
-	if (executor.getGrade() > getGradeToExecute())
+	else if (executor.getGrade() > getGradeToExecute())
 		throw Bureaucrat::GradeTooLowException();
 	std::cout << _target << " has been pardoned by Zaphod Beeblebrox.\n";
+}
+
+PresidentialPardonForm::~PresidentialPardonForm()
+{
+
 }
