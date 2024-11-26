@@ -6,7 +6,7 @@
 /*   By: meserghi <meserghi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 15:53:56 by meserghi          #+#    #+#             */
-/*   Updated: 2024/11/22 18:57:36 by meserghi         ###   ########.fr       */
+/*   Updated: 2024/11/23 12:58:32 by meserghi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ class Bureaucrat
 
 		void	increment();
 		void	decrement();
-
 
 		class GradeTooHighException : public std::exception
 		{
