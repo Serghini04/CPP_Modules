@@ -24,6 +24,5 @@ int main() {
 		std::cin >> nb;
 		split_nb(std::to_string(nb));
     }
-
     return 0;
 }
