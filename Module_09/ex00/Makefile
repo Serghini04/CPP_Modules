@@ -1,0 +1,35 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: meserghi <meserghi@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2024/12/07 14:37:11 by meserghi          #+#    #+#              #
+#    Updated: 2024/12/10 15:43:53 by meserghi         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+FILE = main.cpp BitcoinExchange.cpp
+
+OBJ = ${FILE:.cpp=.o}
+
+FLAGS = -std=c++98 -Wall -Wextra -Werror
+
+NAME = btc
+
+all : ${NAME}
+
+${NAME} : ${OBJ}
+	c++ ${FLAGS} ${OBJ} -o ${NAME}
+
+%.o : %.cpp BitcoinExchange.hpp
+	c++ ${FLAGS} -c $<
+
+clean :
+	rm -f ${OBJ}
+
+fclean : clean
+	rm -f ${NAME}
+
+re : fclean all
