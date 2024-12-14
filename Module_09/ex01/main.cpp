@@ -5,28 +5,28 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: meserghi <meserghi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/18 15:53:58 by meserghi          #+#    #+#             */
-/*   Updated: 2024/12/14 17:52:47 by meserghi         ###   ########.fr       */
+/*   Created: 2024/12/14 13:08:00 by meserghi          #+#    #+#             */
+/*   Updated: 2024/12/14 16:12:44 by meserghi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "Bureaucrat.hpp"
+# include "RPN.hpp"
 
-
-int main()
+int main(int ac, char **av)
 {
-	try
+	if (ac == 2)
 	{
-		Bureaucrat User1;
-		Bureaucrat King("King", 0);
-		Bureaucrat User2("User2", 150);
-		std::cout << User1 << "\n";
-		std::cout << User2 << "\n";
-		std::cout << King << "\n";
+		try
+		{
+			RPN	cal;
+			cal.useRPN(std::string(av[1]));
+		}
+		catch(const std::exception &e)
+		{
+			std::cerr << e.what() << "\n";
+		}
 	}
-	catch(std::exception &e)
-	{
-		std::cout << "Exeception : " << e.what() << "\n";
-	}
+	else
+		std::cerr << "Error\n";
 	return 0;
 }

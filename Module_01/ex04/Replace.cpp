@@ -6,7 +6,7 @@
 /*   By: meserghi <meserghi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 17:02:52 by meserghi          #+#    #+#             */
-/*   Updated: 2024/08/06 13:48:35 by meserghi         ###   ########.fr       */
+/*   Updated: 2024/12/14 12:06:34 by meserghi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ bool		Replace::SetVar(std::string NameFile, std::string S1, std::string S2)
 	_fd_in.open(_Name, std::ios::in);
 	if (!_fd_in.is_open())
 	{
-		std::cout << "Error : file "<< _Name << " not found ?\n";
+		std::cout << "Error: file "<< _Name << " not found ?\n";
 		_is_fail = true;
 		return (false);
 	}

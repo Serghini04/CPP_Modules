@@ -1,32 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   RPN.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: meserghi <meserghi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/18 15:53:58 by meserghi          #+#    #+#             */
-/*   Updated: 2024/12/14 17:52:47 by meserghi         ###   ########.fr       */
+/*   Created: 2024/12/14 14:59:38 by meserghi          #+#    #+#             */
+/*   Updated: 2024/12/14 20:07:39 by meserghi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "Bureaucrat.hpp"
+# pragma once
+# include <iostream>
+# include <stack>
 
-
-int main()
+enum cal
 {
-	try
-	{
-		Bureaucrat User1;
-		Bureaucrat King("King", 0);
-		Bureaucrat User2("User2", 150);
-		std::cout << User1 << "\n";
-		std::cout << User2 << "\n";
-		std::cout << King << "\n";
-	}
-	catch(std::exception &e)
-	{
-		std::cout << "Exeception : " << e.what() << "\n";
-	}
-	return 0;
-}
+	eAdd,
+	eSub,
+	eMul,
+	eDiv
+};
+
+class	RPN
+{
+	private :
+		std::stack<double>	_s;
+	public :
+		RPN();
+		RPN(const RPN &clone);
+		RPN &operator=(const RPN &clone);
+		void	useRPN(std::string line);
+		void applyCalcul(char c);
+		~RPN();
+};

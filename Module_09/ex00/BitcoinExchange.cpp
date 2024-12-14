@@ -6,7 +6,7 @@
 /*   By: meserghi <meserghi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 12:58:47 by meserghi          #+#    #+#             */
-/*   Updated: 2024/12/14 12:48:57 by meserghi         ###   ########.fr       */
+/*   Updated: 2024/12/14 20:32:55 by meserghi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,29 @@ BitcoinExchange::BitcoinExchange(std::string file)
 	_fdInput.open(file);
 	if (_fdInput.fail())
 		throw std::runtime_error("Error: could not open file.");
-	fillContianer();
+	fillContainer();
+}
+
+BitcoinExchange::BitcoinExchange()
+{
+	throw std::runtime_error("Error: could not open file.");
+}
+
+BitcoinExchange::BitcoinExchange(const BitcoinExchange& clone) : _filePath(clone._filePath), _database(clone._database) {
+    _fdInput.open(_filePath);
+}
+
+BitcoinExchange& BitcoinExchange::operator=(const BitcoinExchange& clone)
+{
+    if (this != &clone)
+	{
+		_database = clone._database;
+        _filePath = clone._filePath;
+        if (_fdInput.is_open())
+            _fdInput.close();
+        _fdInput.open(_filePath);
+    }
+    return *this;
 }
 
 
@@ -130,7 +152,7 @@ void	BitcoinExchange::putError(excep e, std::string line)
 			std::cout << "Error: too large a number.\n";
 			break;
 		case eBtcInvalid :
-			std::cout << "Error: invalid btc.";
+			std::cout << "Error: invalid btc.\n";
 			break;
 	}
 }
@@ -230,7 +252,7 @@ void	BitcoinExchange::getAmountOfBitcoin()
 		throw std::runtime_error("Error: Empty data in the input");
 }
 
-void	BitcoinExchange::fillContianer()
+void	BitcoinExchange::fillContainer()
 {
 	int	check = 0;
 	std::string	line;
@@ -249,6 +271,8 @@ void	BitcoinExchange::fillContianer()
 
 BitcoinExchange::~BitcoinExchange()
 {
-	_fdDatabase.close();
-	_fdInput.close();
+	if (_fdDatabase.is_open())
+		_fdDatabase.close();
+	if (_fdInput.is_open())
+		_fdInput.close();
 }
