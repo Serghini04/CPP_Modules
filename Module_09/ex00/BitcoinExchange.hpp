@@ -6,13 +6,13 @@
 /*   By: meserghi <meserghi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 12:58:20 by meserghi          #+#    #+#             */
-/*   Updated: 2024/12/14 13:29:48 by meserghi         ###   ########.fr       */
+/*   Updated: 2024/12/17 19:44:09 by meserghi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # pragma once
 # include <iostream>
-# include <vector>
+# include <set>
 # include <fstream>
 # include <exception>
 # include <iomanip>
@@ -30,20 +30,20 @@ enum excep
 
 struct csv
 {
-	int			year;
-	int			month;
-	int			day;
-	float		btc;
-	excep		e;
+	int		year;
+	int		month;
+	int		day;
+	float	btc;
+	excep	e;
 };
 
 class BitcoinExchange
 {
 	private :
-		std::fstream		_fdInput;
-		std::string			_filePath;
-		std::vector<csv>	_database;
-		std::fstream		_fdDatabase;
+		std::fstream	_fdInput;
+		std::string		_filePath;
+		std::fstream	_fdDatabase;
+		std::set<csv>	_database;
 		csv		fillCSV(std::string &line);
 		void	fillContainer();
 		csv		fillCSVInput(std::string &line);
@@ -57,7 +57,7 @@ class BitcoinExchange
 		void	putError(excep e, std::string line);
 		bool	isLeapYear(int year);
 		void	getAmountOfBitcoin();
-		float	binarySearchLower(std::vector<csv> &database, csv data);
+		float	binarySearchLower(std::set<csv> &database, csv data);
 
 		~BitcoinExchange();
 };

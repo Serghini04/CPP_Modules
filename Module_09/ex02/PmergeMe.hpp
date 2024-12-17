@@ -1,33 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   PmergeMe.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: meserghi <meserghi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/10 12:53:45 by meserghi          #+#    #+#             */
-/*   Updated: 2024/12/16 15:16:06 by meserghi         ###   ########.fr       */
+/*   Created: 2024/12/16 11:51:59 by meserghi          #+#    #+#             */
+/*   Updated: 2024/12/17 19:31:50 by meserghi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "BitcoinExchange.hpp"
+# pragma once
+# include <iostream>
+# include <set>
 
-int main(int ac, char **av)
+class	PmergeMe
 {
-	(void)av;
-	if (ac == 2)
-	{
-		try
-		{
-			BitcoinExchange	btc(av[1]);
-			btc.getAmountOfBitcoin();
-		}
-		catch(const std::exception &e)
-		{
-			std::cout << e.what() << '\n';
-		}
-	}
-	else
-		std::cout << "Error: could not open file.\n";
-	return 0;
-}
+	private :
+		std::set<int>	_arr;
+	public :
+		PmergeMe(int size);
+		void	readInput(int ac, char **av);
+		int		parseInput(std::string line);
+		void	mergeInsertion();
+};

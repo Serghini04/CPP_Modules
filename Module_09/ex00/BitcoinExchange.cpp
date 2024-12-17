@@ -6,7 +6,7 @@
 /*   By: meserghi <meserghi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 12:58:47 by meserghi          #+#    #+#             */
-/*   Updated: 2024/12/14 20:32:55 by meserghi         ###   ########.fr       */
+/*   Updated: 2024/12/17 19:44:44 by meserghi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,12 +89,12 @@ csv	BitcoinExchange::fillCSVInput(std::string &line)
 	char	*buf;
 	csv		data;
 	int		value;
-	std::vector<int> c;
-    c.push_back(4);
-    c.push_back(7);
-    c.push_back(10);
-    c.push_back(11);
-    c.push_back(12);
+	std::set<int> c;
+    c.insert(4);
+    c.insert(7);
+    c.insert(10);
+    c.insert(11);
+    c.insert(12);
 
 	value = 0;
 
@@ -121,6 +121,8 @@ csv	BitcoinExchange::fillCSVInput(std::string &line)
 		}
 		else if (line[i] == ' ' && i == 12 && line[i + 1] == '-')
 			return data.e = eBtcTooLow, data;
+		else if (i == 11 && line[i] != '|')
+			return data.e = eBadInput, data;
 		else if (i != 10 && i != 11 && i != 13)
 			return data.e = eBadInput, data;
 	}
@@ -174,7 +176,7 @@ bool	BitcoinExchange::parseData(csv &data, std::string &line)
 
 	if (data.e != eCorrect)
 		return putError(data.e, line), false;
-	if (data.btc < 0)
+	if (data.btc < 1)
 		return putError(eBtcTooLow, line), false;
 	else if (data.btc > 1000)
 		return putError(eBtcTooHigh, line), false;
@@ -184,6 +186,7 @@ bool	BitcoinExchange::parseData(csv &data, std::string &line)
 		daysInMonth[1] = 29;
 	if (data.day > daysInMonth[data.month - 1])
 		return putError(eInvalidDate, line), false;
+
 	return true;
 }
 
@@ -201,24 +204,19 @@ bool operator<(const csv &data1, const csv &data2)
     return data1.day < data2.day;
 }
 
-
-float	BitcoinExchange::binarySearchLower(std::vector<csv> &database, csv data)
+float BitcoinExchange::binarySearchLower(std::set<csv> &database, csv data)
 {
-    int l = 0;
-    int r = database.size() - 1;
-    int s;
-    while (l <= r)
-    {
-        s = l + (r - l) / 2;
-        if (data == database[s])
-            return database[s].btc * data.btc;
-        if (data < database[s])
-            r = s - 1;
-        else
-            l = s + 1;
+	std::set<csv>::iterator it = database.lower_bound(data);
+
+    if (it == database.end())
+        return -1;
+    if (*it == data)
+        return it->btc * data.btc;
+    if (it != database.begin())
+	{
+        --it;
+        return it->btc * data.btc;
     }
-    if (r >= 0)
-        return database[r].btc * data.btc;
     return -1;
 }
 
@@ -263,7 +261,7 @@ void	BitcoinExchange::fillContainer()
 	while (getline(_fdDatabase, line))
 	{
 		check = 1;
-		_database.push_back(fillCSV(line));
+		_database.insert(fillCSV(line));
 	}
 	if (!check)
 		throw std::runtime_error("Error: Empty data in the database");

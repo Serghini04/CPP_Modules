@@ -5,29 +5,29 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: meserghi <meserghi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/10 12:53:45 by meserghi          #+#    #+#             */
-/*   Updated: 2024/12/16 15:16:06 by meserghi         ###   ########.fr       */
+/*   Created: 2024/12/15 21:07:45 by meserghi          #+#    #+#             */
+/*   Updated: 2024/12/17 18:31:06 by meserghi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "BitcoinExchange.hpp"
+# include "PmergeMe.hpp"
 
 int main(int ac, char **av)
 {
-	(void)av;
-	if (ac == 2)
+	PmergeMe	P(4);
+
+	if (ac > 1)
 	{
 		try
 		{
-			BitcoinExchange	btc(av[1]);
-			btc.getAmountOfBitcoin();
+			P.readInput(ac, av);
 		}
 		catch(const std::exception &e)
 		{
-			std::cout << e.what() << '\n';
+			std::cerr << e.what() << "\n";
 		}
 	}
 	else
-		std::cout << "Error: could not open file.\n";
+		std::cerr << "Error\n";
 	return 0;
 }
