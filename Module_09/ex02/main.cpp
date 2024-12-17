@@ -6,7 +6,7 @@
 /*   By: meserghi <meserghi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/15 21:07:45 by meserghi          #+#    #+#             */
-/*   Updated: 2024/12/17 18:31:06 by meserghi         ###   ########.fr       */
+/*   Updated: 2024/12/17 19:56:00 by meserghi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int main(int ac, char **av)
 {
-	PmergeMe	P(4);
+	PmergeMe	P;
 
 	if (ac > 1)
 	{
