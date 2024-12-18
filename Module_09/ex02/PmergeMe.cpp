@@ -6,11 +6,36 @@
 /*   By: meserghi <meserghi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 11:53:22 by meserghi          #+#    #+#             */
-/*   Updated: 2024/12/17 20:27:43 by meserghi         ###   ########.fr       */
+/*   Updated: 2024/12/18 21:24:49 by meserghi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "PmergeMe.hpp"
+
+PmergeMe::PmergeMe()
+{
+
+}
+
+
+void	PmergeMe::CreateJacobsthalNumbers()
+{
+    std::vector<int> jacoNums;
+	jacoNums.push_back(0);
+	jacoNums.push_back(1);
+
+	for (size_t i = 2; i < _vec.size(); i++)
+		jacoNums.push_back(jacoNums[i - 1] + 2 * jacoNums[i - 2]);
+
+	for (size_t i = 1; i < jacoNums.size() && _jacobsthalNumbers.size() < _vec.size(); i++)
+    {
+		int	end = jacoNums[i - 1], start = jacoNums[i];
+		while (start > end)
+			_jacobsthalNumbers.push_back(start--);
+	}
+}
+
+
 
 int	PmergeMe::parseInput(std::string line)
 {
@@ -32,54 +57,74 @@ int	PmergeMe::parseInput(std::string line)
 	return res;
 }
 
-void	PmergeMe::mergeInsertionVector()
+bool comparePairs(const std::pair<int, int>& a, const std::pair<int, int>& b)
 {
-	int	isOdd = -1;
-	// 1/ Divide the arry of integers base one (N/2) if odd sava last one in variable.
-	if (_vec.size() % 2)
-	{
-		isOdd = _vec[_vec.size() - 1];
-		_vec.pop_back();
-	}
-	std::vector<std::pair<int, int> > pairs;
+    return a.first < b.first;
+}
+
+void PmergeMe::mergeInsertionVector()
+{
+    int isOdd = -1;
+
+    if (_vec.size() % 2)
+    {
+        isOdd = _vec.back();
+        _vec.pop_back();
+    }
+
+    // 1/ Divide the arry of integers base one (N/2) if odd sava last one in variable.
+    std::vector<std::pair<int, int> > pairs;
+    for (size_t i = 0; i < _vec.size(); i += 2)
+    {
+        if (_vec[i] < _vec[i + 1])
+            std::swap(_vec[i], _vec[i + 1]);
+        pairs.push_back(std::make_pair(_vec[i], _vec[i + 1]));
+    }
 	// 2/ Sort the element inside the pairs in a descending order.
-	for (int i = 0; i < (int)_vec.size() - 1; i += 2)
-	{
-		if (_vec[i] < _vec[i + 1])
-			std::swap(_vec[i], _vec[i + 1]);
-		pairs.push_back(std::pair<int, int>(_vec[i], _vec[i + 1]));
-	}
+    std::sort(pairs.begin(), pairs.end(), comparePairs);
+
+    std::vector<int> main_chain;
+    std::vector<int> pend_chain;
+
 	// 3/ After that we have to sort the pairs based on the top of the pair in an ascending order.
-	for (int i = 0; i < (int)pairs.size() - 1; i++)
-	{
-		if (pairs[i].first > pairs[i + 1].first)
-			std::swap(pairs[i], pairs[i + 1]);
-	}
 	// 4/ Splits the pairs into two containers :
 	//		1st Container will hold the top of the pair (main Chain).
 	//		2nd Container will hold the remaining numbers (pend chain).
-	//      and you know are first element in second vector is small that why go this element to first vector
-	std::vector<int> first;
-	std::vector<int> second;
-	for (int i = 0; i < (int)pairs.size(); i++)
-	{
-		if (i == 0)
-			first.push_back(pairs[i].second);
-		else
-			second.push_back(pairs[i].second);
-		first.push_back(pairs[i].first);
-	}
+    for (size_t i = 0; i < pairs.size(); ++i)
+    {
+        if (i == 0)
+            main_chain.push_back(pairs[i].second);
+        main_chain.push_back(pairs[i].first);
+        pend_chain.push_back(pairs[i].second);
+    }
+	// 5/ We need an important element which is the jacobsthal numbers that plays
+	//		a crucial role in the merge insert as it decides which pend element will
+	//      be inserted in the mainChain.
+    CreateJacobsthalNumbers();
 
-	//  <<I will add be soon.>>
+	// 6/ After getting the jacobsthal numbers, you need t insert the missing numbers between
+	//		numbers.
+    for (size_t i = 0; i < _jacobsthalNumbers.size(); ++i)
+    {
+        if (_jacobsthalNumbers[i] < (int)pend_chain.size())
+        {
+            std::vector<int>::iterator it = std::upper_bound(main_chain.begin(), main_chain.end(), pend_chain[_jacobsthalNumbers[i]]);
+            main_chain.insert(it, pend_chain[_jacobsthalNumbers[i]]);
+        }
+    }
 
-	// print Res :
-	puts("Fisrt Vec : ");
-	for (int i = 0; i < (int)first.size(); i++)
-		std::cout << first[i] << "\n";
-	puts("Second Vec : ");
-	for (int i = 0; i < (int)second.size(); i++)
-		std::cout << second[i] << "\n";
+    // 7/ Finally add odd one if are exist
+    if (isOdd != -1)
+    {
+        std::vector<int>::iterator it = std::upper_bound(main_chain.begin(), main_chain.end(), isOdd);
+        main_chain.insert(it, isOdd);
+    }
+
+    _vec = main_chain;
+    for (size_t i = 0; i < _vec.size(); ++i)
+        std::cout << _vec[i] << "\n";
 }
+
 
 void	PmergeMe::readInput(int ac, char **av)
 {
