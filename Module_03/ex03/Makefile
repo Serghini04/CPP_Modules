@@ -6,7 +6,7 @@
 #    By: meserghi <meserghi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/01 21:00:44 by meserghi          #+#    #+#              #
-#    Updated: 2024/08/10 16:37:37 by meserghi         ###   ########.fr        #
+#    Updated: 2024/12/20 17:28:03 by meserghi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ FILE = main.cpp ClapTrap.cpp FragTrap.cpp ScavTrap.cpp\
 
 OBJ = ${FILE:.cpp=.o}
 
-FLAGS = -std=c++98 -Wall -Wextra -Werror
+FLAGS = -Wall -Wextra -Werror
 
 NAME = Diamond
 

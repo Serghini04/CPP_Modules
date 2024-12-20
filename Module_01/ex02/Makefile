@@ -6,7 +6,7 @@
 #    By: meserghi <meserghi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/08 14:38:05 by meserghi          #+#    #+#              #
-#    Updated: 2024/05/09 11:15:44 by meserghi         ###   ########.fr        #
+#    Updated: 2024/12/20 17:28:03 by meserghi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ FILE = main.cpp
 
 OBJ = ${FILE:.cpp=.o}
 
-FLAGS = -std=c++98 -Wall -Wextra -Werror
+FLAGS = -Wall -Wextra -Werror
 
 NAME = ref
 

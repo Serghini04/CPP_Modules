@@ -6,7 +6,7 @@
 #    By: meserghi <meserghi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/18 15:54:01 by meserghi          #+#    #+#              #
-#    Updated: 2024/11/22 12:31:14 by meserghi         ###   ########.fr        #
+#    Updated: 2024/12/20 17:28:03 by meserghi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ FILE = Bureaucrat.cpp main.cpp AForm.cpp ShrubberyCreationForm.cpp \
 
 OBJ = ${FILE:.cpp=.o}
 
-FLAGS = -std=c++98 -Wall -Wextra -Werror
+FLAGS = -Wall -Wextra -Werror
 
 NAME = Bureaucrat
 

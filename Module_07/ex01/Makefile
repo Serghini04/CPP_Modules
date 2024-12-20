@@ -6,7 +6,7 @@
 #    By: meserghi <meserghi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/23 09:50:32 by meserghi          #+#    #+#              #
-#    Updated: 2024/11/27 17:20:34 by meserghi         ###   ########.fr        #
+#    Updated: 2024/12/20 17:28:03 by meserghi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ FILE = main.cpp
 
 OBJ = ${FILE:.cpp=.o}
 
-FLAGS = -std=c++98 -Wall -Wextra -Werror
+FLAGS = -Wall -Wextra -Werror
 
 NAME = a.out
 

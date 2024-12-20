@@ -6,7 +6,7 @@
 #    By: meserghi <meserghi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/26 21:01:01 by meserghi          #+#    #+#              #
-#    Updated: 2024/07/17 17:56:54 by meserghi         ###   ########.fr        #
+#    Updated: 2024/12/20 17:28:03 by meserghi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ FILE = megaphone.cpp
 
 OBJ = ${FILE:.cpp=.o}
 
-FLAGS = -std=c++98 -Wall -Wextra -Werror
+FLAGS = -Wall -Wextra -Werror
 
 NAME = megaphone
 
