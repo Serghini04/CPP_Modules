@@ -6,7 +6,7 @@
 /*   By: meserghi <meserghi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 12:58:47 by meserghi          #+#    #+#             */
-/*   Updated: 2024/12/17 19:44:44 by meserghi         ###   ########.fr       */
+/*   Updated: 2024/12/20 12:32:04 by meserghi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -176,7 +176,7 @@ bool	BitcoinExchange::parseData(csv &data, std::string &line)
 
 	if (data.e != eCorrect)
 		return putError(data.e, line), false;
-	if (data.btc < 1)
+	if (data.btc < 0)
 		return putError(eBtcTooLow, line), false;
 	else if (data.btc > 1000)
 		return putError(eBtcTooHigh, line), false;
