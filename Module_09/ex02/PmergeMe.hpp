@@ -6,23 +6,46 @@
 /*   By: meserghi <meserghi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 11:51:59 by meserghi          #+#    #+#             */
-/*   Updated: 2024/12/18 10:20:36 by meserghi         ###   ########.fr       */
+/*   Updated: 2024/12/20 16:11:42 by meserghi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # pragma once
 # include <iostream>
 # include <vector>
+# include <deque>
+# include <ctime>
+# include <iomanip>
 
 class	PmergeMe
 {
 	private :
 		std::vector<int>	_vec;
-		std::vector<int>	_jacobsthalNumbers;
+		std::deque<int>		_deque;
+		std::deque<int>		_jacobsthalNbsDeque;
+		std::vector<int>	_jacobsthalNbsVec;
+		double				_durationVector;
+		double				_durationDeque;
 	public :
 		PmergeMe();
 		void	readInput(int ac, char **av);
 		int		parseInput(std::string line);
+		template <typename T> void CheckDoubleSorted(T data)
+		{
+			size_t	count = 1;
+    		for (size_t i = 0; i < data.size(); i++)
+			{
+                if (std::find(data.begin() + i + 1, data.end(), data[i]) != data.end())
+                    throw std::runtime_error("Error: Duplicate number!");
+				if (i < data.size() - 1 && data[i] < data[i + 1])
+					count++;
+            }
+			if (count == data.size())
+				throw std::runtime_error("Error: Input is really sorted!");
+		}
 		void	mergeInsertionVector();
-		void	CreateJacobsthalNumbers();
+		void	mergeInsertionDeque();
+		void	CreateJacobsthalNumbersVec();
+		void	CreateJacobsthalNumbersDeque();
+		void	printResult(int ac, char **av);
 };

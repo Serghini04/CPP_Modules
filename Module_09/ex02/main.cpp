@@ -6,7 +6,7 @@
 /*   By: meserghi <meserghi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/15 21:07:45 by meserghi          #+#    #+#             */
-/*   Updated: 2024/12/17 19:56:00 by meserghi         ###   ########.fr       */
+/*   Updated: 2024/12/20 13:06:13 by meserghi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ int main(int ac, char **av)
 		try
 		{
 			P.readInput(ac, av);
+			P.printResult(ac, av);
 		}
 		catch(const std::exception &e)
 		{
