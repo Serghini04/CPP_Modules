@@ -6,7 +6,7 @@
 #    By: meserghi <meserghi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/07 14:37:11 by meserghi          #+#    #+#              #
-#    Updated: 2024/12/20 17:28:03 by meserghi         ###   ########.fr        #
+#    Updated: 2024/12/20 20:10:37 by meserghi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ FILE = main.cpp PmergeMe.cpp
 
 OBJ = ${FILE:.cpp=.o}
 
-FLAGS = -Wall -Wextra -Werror -fsanitize=address -g
+FLAGS = -Wall -Wextra -Werror
 
 NAME = PmergeMe
 

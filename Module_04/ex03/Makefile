@@ -3,7 +3,7 @@ FILE = main.cpp AMateria.cpp Character.cpp Cure.cpp Ice.cpp ICharacter.cpp\
 
 OBJ = ${FILE:.cpp=.o}
 
-FLAGS = -Wall -Wextra -Werror #-fsanitize=address -g
+FLAGS = -Wall -Wextra -Werror
 
 NAME = Interface
 

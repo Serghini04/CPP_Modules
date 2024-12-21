@@ -6,7 +6,7 @@
 /*   By: meserghi <meserghi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 15:49:18 by meserghi          #+#    #+#             */
-/*   Updated: 2024/11/22 18:59:10 by meserghi         ###   ########.fr       */
+/*   Updated: 2024/12/21 10:24:48 by meserghi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ class Form
 				const char *what() const throw();
 		};
 
-		void	BeSigned(const Bureaucrat & B);
+		void	beSigned(const Bureaucrat & B);
 		~Form();
 };
 

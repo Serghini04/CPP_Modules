@@ -6,7 +6,7 @@
 /*   By: meserghi <meserghi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 15:49:18 by meserghi          #+#    #+#             */
-/*   Updated: 2024/11/22 18:58:01 by meserghi         ###   ########.fr       */
+/*   Updated: 2024/12/21 10:24:48 by meserghi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ class AForm
 
 		virtual void	execute(Bureaucrat const & executor) const = 0;
 
-		void	BeSigned(const Bureaucrat & B);
+		void	beSigned(const Bureaucrat & B);
 
 		virtual ~AForm();
 };

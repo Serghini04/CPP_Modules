@@ -6,24 +6,23 @@
 /*   By: meserghi <meserghi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 12:56:24 by meserghi          #+#    #+#             */
-/*   Updated: 2024/11/22 12:44:56 by meserghi         ###   ########.fr       */
+/*   Updated: 2024/12/20 20:35:46 by meserghi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "ShrubberyCreationForm.hpp"
-# include <fstream>
 
-ShrubberyCreationForm::ShrubberyCreationForm(std::string target) : AForm("ShrubberyCreationForm", 145, 137)
+ShrubberyCreationForm::ShrubberyCreationForm(std::string target) : AForm("ShrubberyCreationForm", 137, 145)
 {
 	_target = target;
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm() : AForm("ShrubberyCreationForm", 145, 137)
+ShrubberyCreationForm::ShrubberyCreationForm() : AForm("ShrubberyCreationForm", 137, 145)
 {
 	_target = "Unknown target";
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &clone) : AForm("ShrubberyCreationForm", 145, 137)
+ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &clone) : AForm("ShrubberyCreationForm", 137, 145)
 {
 	_target = clone._target;
 }

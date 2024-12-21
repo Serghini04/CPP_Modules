@@ -6,7 +6,7 @@
 /*   By: meserghi <meserghi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 12:57:26 by meserghi          #+#    #+#             */
-/*   Updated: 2024/11/22 21:53:45 by meserghi         ###   ########.fr       */
+/*   Updated: 2024/11/22 12:39:53 by meserghi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ PresidentialPardonForm &PresidentialPardonForm::operator=(const PresidentialPard
 	}
 	return *this;
 }
+
 
 void	PresidentialPardonForm::execute(Bureaucrat const & executor) const
 {

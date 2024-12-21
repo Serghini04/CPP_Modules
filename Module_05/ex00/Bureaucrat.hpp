@@ -6,13 +6,13 @@
 /*   By: meserghi <meserghi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 15:53:56 by meserghi          #+#    #+#             */
-/*   Updated: 2024/11/22 18:58:59 by meserghi         ###   ########.fr       */
+/*   Updated: 2024/12/21 10:06:20 by meserghi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # pragma once
 # include <iostream>
-#include <exception>
+# include <exception>
 
 class Bureaucrat
 {

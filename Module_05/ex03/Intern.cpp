@@ -6,12 +6,11 @@
 /*   By: meserghi <meserghi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 12:49:44 by meserghi          #+#    #+#             */
-/*   Updated: 2024/11/22 20:22:01 by meserghi         ###   ########.fr       */
+/*   Updated: 2024/12/21 11:36:27 by meserghi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "Intern.hpp"
-
 
 Intern::Intern()
 {
@@ -24,10 +23,11 @@ Intern::Intern(const Intern &clone)
 }
 Intern &Intern::operator=( const Intern & clone)
 {
+	(void)clone;
 	return *this;
 }
 
-AForm	*makeForm(std::string nameForm, std::string target)
+AForm	*Intern::makeForm(std::string nameForm, std::string target)
 {
 	AForm	*Form = NULL;
 	int		i = 0;
@@ -55,7 +55,6 @@ AForm	*makeForm(std::string nameForm, std::string target)
 	}
 	std::cout << "Intern creates " << Form->getName() << " .\n";
 	return Form;
-
 }
 
 const char *Intern::FormNotFoundException::what() const throw()
