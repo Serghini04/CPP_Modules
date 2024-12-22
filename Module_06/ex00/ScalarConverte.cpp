@@ -6,7 +6,7 @@
 /*   By: meserghi <meserghi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/23 09:58:26 by meserghi          #+#    #+#             */
-/*   Updated: 2024/11/26 13:06:46 by meserghi         ###   ########.fr       */
+/*   Updated: 2024/12/22 20:56:57 by meserghi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,16 +41,21 @@ bool	HasDouble(std::string &str)
 		else if (str[i] == '.')
 			return false;
 	}
+	if (str.size() > 1 && str[str.size() - 1] == 'f')
+		return true;
 	return res;
 }
 
-void	printConvertInt(int nb)
+void	printConvertInt(double nb)
 {
 	if ((nb >= 0  && nb <= 255) && std::isprint(static_cast<char>(nb)))
 		std::cout << "char: '" << static_cast<char>(nb) << "'\n";
 	else
 		std::cout << "char: " << "Non displayable" << "\n";
-	std::cout << "int: " << static_cast<int>(nb) << "\n";
+	if (nb > INT_MAX || nb < INT_MIN)
+		std::cout << "int: impossible\n";
+	else
+		std::cout << "int: " << static_cast<int>(nb) << "\n";
 	std::cout << "float: " << static_cast<float>(nb) << "f" << "\n";
 	std::cout << "double: " << static_cast<double>(nb) << "\n";
 }
@@ -103,6 +108,21 @@ void	printConvertInvalid(int isImp)
 		std::cout << "double: " << "nan\n";
 	}
 }
+void	printConvertInf(std::string	&str)
+{
+	std::cout << "char: " << "impossible\n";
+	std::cout << "int: " << "impossible\n";
+	if (str == "-inf" ||  str == "+inf" || str == "inf")
+	{
+		std::cout << "float: " << str << "f\n";
+		std::cout << "double: " << str << "\n";
+	}
+	else
+	{
+		std::cout << "float: " << str << "\n";
+		std::cout << "double: " << str.substr(0, str.size() - 1) << "\n";
+	}
+}
 
 void	checkPseudo(std::string &str)
 {
@@ -111,10 +131,10 @@ void	checkPseudo(std::string &str)
 
 	isPesudo = false;
 	if (str == "-inf" || str == "-inff")
-		printConvertFloat(std::numeric_limits<float>::infinity());
+		printConvertInf(str);
 	else if (str == "+inff" || str == "+inf" || str == "inf"  || str == "inff")
-		printConvertFloat(std::numeric_limits<float>::infinity());
-	else if (str == "nan")
+		printConvertInf(str);
+	else if (str == "nan" || str == "nanf")
 		printConvertInvalid(0);
 	else
 		return ;
@@ -127,6 +147,8 @@ eTypes	getType(std::string &str)
 	bool	isDouble;
 	double	nb;
 
+	if (str.empty())
+		return eImpossible;
 	isDouble = HasDouble(str);
 	nb = strtod(str.c_str(), &trash);
 	if (isDouble && trash[0] == 'f' && !trash[1])
