@@ -6,7 +6,7 @@
 /*   By: meserghi <meserghi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/23 09:58:26 by meserghi          #+#    #+#             */
-/*   Updated: 2024/12/22 20:56:57 by meserghi         ###   ########.fr       */
+/*   Updated: 2024/12/23 11:28:47 by meserghi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,13 +57,13 @@ void	printConvertInt(double nb)
 	else
 		std::cout << "int: " << static_cast<int>(nb) << "\n";
 	std::cout << "float: " << static_cast<float>(nb) << "f" << "\n";
-	std::cout << "double: " << static_cast<double>(nb) << "\n";
+	std::cout << "double: " << nb << "\n";
 }
 
 void	printConvertChar(char c)
 {
-	if (std::isprint(static_cast<char>(c)))
-		std::cout << "char: '" << static_cast<char>(c) << "'\n";
+	if (std::isprint(c))
+		std::cout << "char: '" << c << "'\n";
 	else
 		std::cout << "char: " << "Non displayable" << "\n";
 	std::cout << "int: " << static_cast<int>(c) << "\n";
@@ -79,7 +79,7 @@ void	printConvertDouble(double nb)
 		std::cout << "char: " << "Non displayable" << "\n";
 	std::cout << "int: " << static_cast<int>(nb) << "\n";
 	std::cout << "float: " << static_cast<float>(nb) << "f" << "\n";
-	std::cout << "double: " << static_cast<double>(nb) << "\n";
+	std::cout << "double: " << nb << "\n";
 }
 
 void	printConvertFloat(float nb)
@@ -89,7 +89,7 @@ void	printConvertFloat(float nb)
 	else
 		std::cout << "char: " << "Non displayable" << "\n";
 	std::cout << "int: " << static_cast<int>(nb) << "\n";
-	std::cout << "float: " << static_cast<float>(nb) << "f" << "\n";
+	std::cout << "float: " << nb << "f" << "\n";
 	std::cout << "double: " << static_cast<double>(nb) << "\n";
 }
 
@@ -149,14 +149,14 @@ eTypes	getType(std::string &str)
 
 	if (str.empty())
 		return eImpossible;
+	if (std::isalpha(str[0]) && !str[1])
+		return eChar;
 	isDouble = HasDouble(str);
 	nb = strtod(str.c_str(), &trash);
 	if (isDouble && trash[0] == 'f' && !trash[1])
 		return eFloat;
 	else if (isDouble && !trash[0])
 		return eDouble;
-	else if (!nb && trash[0] && !trash[1])
-		return eChar;
 	else if (!isDouble && !trash[0])
 		return eInt;
 	return eImpossible;

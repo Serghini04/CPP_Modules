@@ -6,7 +6,7 @@
 /*   By: meserghi <meserghi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 10:13:34 by meserghi          #+#    #+#             */
-/*   Updated: 2024/11/26 11:36:23 by meserghi         ###   ########.fr       */
+/*   Updated: 2024/12/23 12:05:26 by meserghi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # include "B.hpp"
 # include "C.hpp"
 # include <ctime>
-# include <cstdlib>
+# include <unistd.h>
 
 Base	*generate(void)
 {
@@ -84,8 +84,8 @@ int main()
 	{
 		std::cout << "Guess What actual type is ?\n";
 		B = generate();
-		identify(*B);
 		identify(B);
+		identify(*B);
 		delete B;
 	}
 	return 0;

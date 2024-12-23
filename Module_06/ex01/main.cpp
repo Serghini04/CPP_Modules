@@ -6,7 +6,7 @@
 /*   By: meserghi <meserghi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/23 10:28:32 by meserghi          #+#    #+#             */
-/*   Updated: 2024/12/22 20:27:23 by meserghi         ###   ########.fr       */
+/*   Updated: 2024/12/23 11:56:33 by meserghi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,12 @@ int main()
 	Data	*e;
 
 	uintptr_t	nb = Serialize::serialize(&d);
-
-	// std::cout << "Before Serialied : " << nb << "\n";
-	// std::cout << "Serialied : " << nb << "\n";
-	// std::cout << "DeSerialied : " << Serialize::deserialize(nb) << "\n";
+	std::cout << "Serialied : " << nb << "\n";
+	std::cout << "DeSerialied : " << Serialize::deserialize(nb) << "\n";
 	e = Serialize::deserialize(nb);
 	if (e == &d)
 	{
-		std::cout << "eqaul  : " << e->name<< std::endl;
+		std::cout << "eqaul : " << e->name<< std::endl;
 	}
 	return 0;
 }
