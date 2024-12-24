@@ -6,14 +6,14 @@
 /*   By: meserghi <meserghi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 12:50:15 by meserghi          #+#    #+#             */
-/*   Updated: 2024/11/27 17:38:11 by meserghi         ###   ########.fr       */
+/*   Updated: 2024/12/23 18:34:03 by meserghi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # pragma once
 # include <iostream>
 
-template <typename T> void	iter(T *arr, int length, void (*f)(T&))
+template <typename T, typename Fn> void	iter(T *arr, int length, Fn f)
 {
 	if (!arr || length <= 0)
 		return ;
