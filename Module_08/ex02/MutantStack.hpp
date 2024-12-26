@@ -6,7 +6,7 @@
 /*   By: meserghi <meserghi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 12:09:43 by meserghi          #+#    #+#             */
-/*   Updated: 2024/12/09 21:58:23 by meserghi         ###   ########.fr       */
+/*   Updated: 2024/12/26 15:03:16 by meserghi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,34 +38,50 @@ public:
 
     it begin()
     {
+        if (this->empty())
+            throw std::runtime_error("Empty Stack !");
         return this->c.begin();
     }
     it end()
     {
+        if (this->empty())
+            throw std::runtime_error("Empty Stack !");
         return this->c.end();
     }
     const_it begin() const
     {
+        if (this->empty())
+            throw std::runtime_error("Empty Stack !");
         return this->c.cbegin();
     }
     const_it end() const
     {
+        if (this->empty())
+            throw std::runtime_error("Empty Stack !");
         return this->c.cend();
     }
     reverse_it rbegin()
     {
+        if (this->empty())
+            throw std::runtime_error("Empty Stack !");
         return this->c.rbegin();
     }
     reverse_it rend()
     {
+        if (this->empty())
+            throw std::runtime_error("Empty Stack !");
         return this->c.rend();
     }
     const_reverse_it rbegin() const
     {
+        if (this->empty())
+            throw std::runtime_error("Empty Stack !");
         return this->c.crbegin();
     }
     const_reverse_it rend() const
     {
+        if (this->empty())
+            throw std::runtime_error("Empty Stack !");
         return this->c.crend();
     }
 };

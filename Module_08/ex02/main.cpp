@@ -6,7 +6,7 @@
 /*   By: meserghi <meserghi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 12:09:08 by meserghi          #+#    #+#             */
-/*   Updated: 2024/12/09 16:37:54 by meserghi         ###   ########.fr       */
+/*   Updated: 2024/12/26 15:06:54 by meserghi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,21 @@
 
 int main()
 {
-	MutantStack<int> s;
-	s.push(24);
-	s.push(24);
-	s.push(24);
-	s.push(24);
-	s.push(24);
+	try
+	{
+		MutantStack<int> s;
+		s.push(24);
+		s.push(24);
+		s.push(24);
+		s.push(24);
 
-	const MutantStack<int> s1(s);
-	std::cout << *s1.begin() <<"\n";
+		std::cout << *s.begin() <<"\n";
+		std::cout << *s.end() <<"\n";
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+
 	return 0;
 }

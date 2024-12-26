@@ -6,7 +6,7 @@
 /*   By: meserghi <meserghi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 12:50:15 by meserghi          #+#    #+#             */
-/*   Updated: 2024/12/23 18:34:03 by meserghi         ###   ########.fr       */
+/*   Updated: 2024/12/24 16:13:05 by meserghi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,3 +25,4 @@ template <typename T> void	fn(T &data)
 {
 	std::cout << "Value is : " << data << "\n";
 }
+  

@@ -6,7 +6,7 @@
 /*   By: meserghi <meserghi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/07 17:51:01 by meserghi          #+#    #+#             */
-/*   Updated: 2024/12/09 12:00:43 by meserghi         ###   ########.fr       */
+/*   Updated: 2024/12/26 14:47:12 by meserghi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,24 +14,23 @@
 
 int main()
 {
-	Span sp = Span(10);
-	// Span Test = fillSpan(10);
-	sp.addNumber(0);
-	sp.addNumber(1);
-	// sp.addNumber(INT_MAX);
-	// // sp.addNumber(INT_MIN);
-	// // sp.addNumber(0);
-	// // sp.addNumber(17);
-	// // sp.addNumber(-111);
-	// sp.addNumber(-1222212);
-	// sp.addNumber(INT_MIN);
-	// sp.addNumber(1);
+	try
+	{
+		Span sp = Span(10);
+		sp.addNumber(42);
+		sp.addNumber(1);
+		sp.addNumber(2);
+		sp.addNumber(5555552);
+		sp.addNumber(-42);
 
-	std::cout << "Shortest Span Here is :  " << sp.shortestSpan() << "\n";
-	std::cout << "Longest Span Here is :  " << sp.longestSpan() << "\n";
+		std::cout << "Shortest Span Here is :  " << sp.shortestSpan() << "\n";
+		std::cout << "Longest Span Here is :  " << sp.longestSpan() << "\n";
 
-	// std::cout << "Shortest Span Here is :  " << Test.shortestSpan() << "\n";
-	// std::cout << "Longest Span Here is :  " << Test.longestSpan() << "\n";
+	}
+	catch(const std::exception &e)
+	{
+		std::cout << e.what() << "\n";
+	}
 
 	return 0;
 }

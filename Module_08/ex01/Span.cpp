@@ -6,7 +6,7 @@
 /*   By: meserghi <meserghi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/07 17:53:47 by meserghi          #+#    #+#             */
-/*   Updated: 2024/12/09 12:07:59 by meserghi         ###   ########.fr       */
+/*   Updated: 2024/12/26 14:36:40 by meserghi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ Span::Span(unsigned int N)
 void	Span::addNumber(int value)
 {
 	if (_v.size() >= _max)
-		throw std::runtime_error("Out Of Size\n");
+		throw std::runtime_error("Out Of Size");
 	_v.push_back(value);
 }
 
@@ -56,7 +56,7 @@ long	Span::shortestSpan()
 	std::sort(_v.begin(), _v.end());
 	for (std::vector<int>::iterator it = _v.begin(); it + 1 != _v.end(); it++)
 	{
-		sp = abs(*(it + 1) - static_cast<long long>(*it));
+		sp = std::abs(static_cast<long>(*(it + 1)) - *it);
 		if (min > sp)
 			min = sp;
 	}
@@ -67,7 +67,7 @@ long	Span::longestSpan() {
     if (_v.size() < 2)
 		throw std::runtime_error("Not enough elements to calculate span");
 	std::sort(_v.begin(), _v.end());
-    return abs(*_v.begin() - static_cast<long long>(*(_v.end() - 1)));
+    return abs(*_v.begin() - static_cast<long>(*(_v.end() - 1)));
 }
 
 Span::~Span()
