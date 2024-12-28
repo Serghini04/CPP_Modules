@@ -6,7 +6,7 @@
 /*   By: meserghi <meserghi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 12:58:47 by meserghi          #+#    #+#             */
-/*   Updated: 2024/12/21 20:39:48 by meserghi         ###   ########.fr       */
+/*   Updated: 2024/12/28 11:31:45 by meserghi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,8 +54,9 @@ csv	BitcoinExchange::fillCSV(std::string &line)
 	int		value;
 
 	value = 0;
+    int daysInMonth[] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
 	if (line.empty())
-		throw std::runtime_error("Error: Empty line in database invalid");;
+		throw std::runtime_error("Error: Empty line in database invalid");
 	for (i = 0; line[i] && i <= 10; i++)
 	{
 		if (std::isdigit(line[i]) && i != 4 && i != 7 && i != 10)
@@ -80,6 +81,12 @@ csv	BitcoinExchange::fillCSV(std::string &line)
 	}
 	if (i <= 10)
 		throw std::runtime_error("Error: database invalid");
+	if ( data.month < 1 || data.month > 12 || data.day < 1)
+		throw std::runtime_error("Error: invalid date");
+	if (isLeapYear(data.year) && data.month == 2)
+		daysInMonth[1] = 29;
+	if (data.day > daysInMonth[data.month - 1])
+		throw std::runtime_error("Error: invalid date");
 	return data;
 }
 
@@ -209,7 +216,10 @@ float BitcoinExchange::binarySearchLower(std::set<csv> &database, csv data)
 	std::set<csv>::iterator it = database.lower_bound(data);
 
     if (it == database.end())
-        return -1;
+	{
+		it--;	
+        return it->btc * data.btc;
+	}
     if (*it == data)
         return it->btc * data.btc;
     if (it != database.begin())

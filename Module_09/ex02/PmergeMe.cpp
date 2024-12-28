@@ -6,7 +6,7 @@
 /*   By: meserghi <meserghi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 11:53:22 by meserghi          #+#    #+#             */
-/*   Updated: 2024/12/20 16:57:26 by meserghi         ###   ########.fr       */
+/*   Updated: 2024/12/28 13:05:13 by meserghi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -199,6 +199,7 @@ void	PmergeMe::readInput(int ac, char **av)
 	CheckDoubleSorted(_vec);
 	mergeInsertionVector();
 	_durationVector = static_cast<double>(clock() - s) / CLOCKS_PER_SEC;
+	_durationVector *= 1e6;
 
 	s = clock();
 	for (int i = 1; i < ac; i++)
@@ -206,6 +207,7 @@ void	PmergeMe::readInput(int ac, char **av)
 	CheckDoubleSorted(_deque);
     mergeInsertionDeque();
 	_durationDeque = static_cast<double>(clock() - s) / CLOCKS_PER_SEC;
+	_durationDeque *= 1e6;
 }
 
 void	PmergeMe::printResult(int ac, char **av)
@@ -219,16 +221,16 @@ void	PmergeMe::printResult(int ac, char **av)
 	}
 
 	std::cout << "\nAfter:	";
-	for (int i = 1; i < ac; i++)
+	for (size_t i = 0; i < _vec.size(); i++)
 	{
-		std::cout << std::atoi(av[i]);
-		if (i + 1 != ac)
+		std::cout << _vec[i];
+		if (i + 1 != _vec.size())
 			std::cout << " ";
 	}
 
 	std::cout << "\nTime to process a range of " << _vec.size()
 		<< " elements with std::vec : " << _durationVector << " us\n";
 
-	std::cout << "Time to process a range of " << _vec.size()
-		<< " elements with std::deque : " << _durationVector << " us\n";
+	std::cout << "Time to process a range of " << _deque.size()
+		<< " elements with std::deque : " << _durationDeque << " us\n";
 }

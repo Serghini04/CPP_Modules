@@ -6,7 +6,7 @@
 /*   By: meserghi <meserghi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 13:30:44 by meserghi          #+#    #+#             */
-/*   Updated: 2024/12/14 20:21:51 by meserghi         ###   ########.fr       */
+/*   Updated: 2024/12/28 11:50:09 by meserghi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ void RPN::applyCalcul(char c)
 	_s.pop();
 	nb1 = _s.top();
 	_s.pop();
-	std::cout << nb1 << " | " << nb2 << "\n";
 	if (c == '+')
 		_s.push(nb1 + nb2);
 	else if (c == '-')
@@ -65,7 +64,7 @@ void	RPN::useRPN(std::string line)
 	{
 		if (line[i] == ' ')
 			continue;
-		else if (std::isdigit(line[i]) && line[i + 1] == ' ')
+		else if (std::isdigit(line[i]) && (line[i + 1] == ' ' || line[i + 1] == '\0'))
 			_s.push(line[i] - 48);
 		else if (line[i] == '-' || line[i] == '+' || line[i] == '/' | line[i] == '*')
 			applyCalcul(line[i]);
@@ -74,6 +73,8 @@ void	RPN::useRPN(std::string line)
 	}
 	if (line[i] == '-' || line[i] == '+' || line[i] == '/' | line[i] == '*')
 		applyCalcul(line[i]);
+	else if (std::isdigit(line[i]))
+		_s.push(line[i] - 48);
 	if (_s.size() != 1)
 		throw std::runtime_error("Error");
 	std::cout << _s.top() << "\n";

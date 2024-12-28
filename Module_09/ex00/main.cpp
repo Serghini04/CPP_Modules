@@ -6,7 +6,7 @@
 /*   By: meserghi <meserghi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 12:53:45 by meserghi          #+#    #+#             */
-/*   Updated: 2024/12/16 15:16:06 by meserghi         ###   ########.fr       */
+/*   Updated: 2024/12/28 13:13:08 by meserghi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,19 +15,16 @@
 int main(int ac, char **av)
 {
 	(void)av;
-	if (ac == 2)
+	try
 	{
-		try
-		{
-			BitcoinExchange	btc(av[1]);
-			btc.getAmountOfBitcoin();
-		}
-		catch(const std::exception &e)
-		{
-			std::cout << e.what() << '\n';
-		}
+		if (ac != 2)
+			throw std::runtime_error("Error: could not open file.");
+		BitcoinExchange	btc(av[1]);
+		btc.getAmountOfBitcoin();
 	}
-	else
-		std::cout << "Error: could not open file.\n";
+	catch(const std::exception &e)
+	{
+		std::cout << e.what() << '\n';
+	}
 	return 0;
 }
