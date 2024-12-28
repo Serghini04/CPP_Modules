@@ -6,7 +6,7 @@
 /*   By: meserghi <meserghi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 11:51:59 by meserghi          #+#    #+#             */
-/*   Updated: 2024/12/20 16:11:42 by meserghi         ###   ########.fr       */
+/*   Updated: 2024/12/28 15:51:00 by meserghi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,9 @@ class	PmergeMe
 		double				_durationDeque;
 	public :
 		PmergeMe();
+		PmergeMe(const PmergeMe &clone);
+
+		PmergeMe &operator=(const PmergeMe &clone);
 		void	readInput(int ac, char **av);
 		int		parseInput(std::string line);
 		template <typename T> void CheckDoubleSorted(T data)
@@ -48,4 +51,6 @@ class	PmergeMe
 		void	CreateJacobsthalNumbersVec();
 		void	CreateJacobsthalNumbersDeque();
 		void	printResult(int ac, char **av);
+		
+		~PmergeMe();
 };

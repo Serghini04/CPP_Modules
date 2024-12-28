@@ -6,7 +6,7 @@
 /*   By: meserghi <meserghi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 12:58:47 by meserghi          #+#    #+#             */
-/*   Updated: 2024/12/28 11:31:45 by meserghi         ###   ########.fr       */
+/*   Updated: 2024/12/28 15:16:34 by meserghi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ csv	BitcoinExchange::fillCSV(std::string &line)
 	}
 	if (i <= 10)
 		throw std::runtime_error("Error: database invalid");
-	if ( data.month < 1 || data.month > 12 || data.day < 1)
+	if (data.year < 1 || data.month < 1 || data.month > 12 || data.day < 1)
 		throw std::runtime_error("Error: invalid date");
 	if (isLeapYear(data.year) && data.month == 2)
 		daysInMonth[1] = 29;

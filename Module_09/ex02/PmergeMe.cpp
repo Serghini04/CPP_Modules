@@ -6,7 +6,7 @@
 /*   By: meserghi <meserghi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 11:53:22 by meserghi          #+#    #+#             */
-/*   Updated: 2024/12/28 13:05:13 by meserghi         ###   ########.fr       */
+/*   Updated: 2024/12/28 15:54:01 by meserghi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,30 @@
 PmergeMe::PmergeMe()
 {
 
+}
+
+PmergeMe::PmergeMe(const PmergeMe &clone)
+{
+	_vec = clone._vec;
+	_deque = clone._deque;
+	_jacobsthalNbsDeque = clone._jacobsthalNbsDeque;
+	_jacobsthalNbsVec = clone._jacobsthalNbsVec;
+	_durationDeque = clone._durationDeque;
+	_durationVector = clone._durationVector;
+}
+
+PmergeMe &PmergeMe::operator=(const PmergeMe &clone)
+{
+	if (this != &clone)
+	{
+		_vec = clone._vec;
+		_deque = clone._deque;
+		_jacobsthalNbsDeque = clone._jacobsthalNbsDeque;
+		_jacobsthalNbsVec = clone._jacobsthalNbsVec;
+		_durationDeque = clone._durationDeque;
+		_durationVector = clone._durationVector;
+	}
+	return *this;
 }
 
 void	PmergeMe::CreateJacobsthalNumbersVec()
@@ -233,4 +257,9 @@ void	PmergeMe::printResult(int ac, char **av)
 
 	std::cout << "Time to process a range of " << _deque.size()
 		<< " elements with std::deque : " << _durationDeque << " us\n";
+}
+
+PmergeMe::~PmergeMe()
+{
+
 }
