@@ -1,6 +1,6 @@
 # 🚀 My C++ Odyssey
 
-![C++ Banner](https://raw.githubusercontent.com/Serghini04/Serghini04/main/assets/cpp_banner.png)
+![C++ Banner](img/cpp.jpg)
 
 > *"C makes it easy to shoot yourself in the foot; C++ makes it harder, but when you do, it blows your whole leg off."* - Bjarne Stroustrup
 
